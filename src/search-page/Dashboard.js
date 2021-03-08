@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class aboutPage extends Component {
+export default class Dashboard extends Component {
     render() {
         return (
             <div>
-                
+                Dashboard
             </div>
         )
     }

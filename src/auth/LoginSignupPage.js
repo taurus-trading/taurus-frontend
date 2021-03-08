@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class UserCredential extends Component {
+export default class LoginSignupPage extends Component {
     render() {
         return (
             <div>
