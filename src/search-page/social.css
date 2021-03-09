@@ -1,0 +1,16 @@
+ul {
+    list-style: none;
+}
+.tweet-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    margin-left: auto;
+    border: 1px solid salmon;
+}
+
+.tweet-image {
+    width: 400px;
+}
