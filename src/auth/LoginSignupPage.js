@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import LoginForm from './LoginForm'
 import SignUpForm from './SignupForm';
 
-export default class UserCredential extends Component {
+export default class LoginSignupPage extends Component {
     state = {
         user: '',
     }

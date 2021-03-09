@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import loginUser from '../userUtils.js';
+import loginUser from '../utils/user-utils.js';
 
 
-export default class SignUpForm extends Component {
+export default class LoginForm extends Component {
     state = {
         email: '',
         password: '',
