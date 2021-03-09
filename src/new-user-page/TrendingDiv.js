@@ -9,6 +9,7 @@ export default class TrendingDiv extends Component {
                 key={trendingItem.id}
                 symbol= {trendingItem.symbol}
                 title= {trendingItem.title}
+                value= {trendingItem.symbol}
                 handleSubmit = {this.props.handleSubmit} 
                 />
 
@@ -16,7 +17,7 @@ export default class TrendingDiv extends Component {
         })
         return (
             <div>
-                <ul>
+                <ul className='trending-ul'>
                    {trending}
                 </ul>
             </div>

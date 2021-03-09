@@ -50,7 +50,7 @@ export async function getUserWatchList(token) {
     return response.body;
 }
 export async function addToWatchList(token, symbol, title) {
-    const response = request.post(`${BACK_END_URL}/api/watchlist`).set('Authorization', token).send({
+    const response = await request.post(`${BACK_END_URL}/api/watchlist`).set('Authorization', token).send({
         symbol, title
     });
 
@@ -63,15 +63,15 @@ export async function deleteFromWatchList(token, id) {
 }
 
 //local storage functions
-export async function addUserToLocalStorage(token) {
+export function addUserToLocalStorage(token) {
     localStorage.setItem(TOKEN, token)
 }
 
-export async function getUserFromLocalStorage() {
+export function getUserFromLocalStorage() {
     return localStorage.getItem(TOKEN)
 }
 
 
-export async function removeUserFromLocalStorage() {
+export function removeUserFromLocalStorage() {
     localStorage.removeItem(TOKEN)
 }

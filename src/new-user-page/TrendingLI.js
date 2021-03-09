@@ -5,10 +5,10 @@ export default class TrendingLI extends Component {
     
         return (
             <div className='trending-item'>
-                <li>
+                <li className='trending-li'>
                     <p>Symbol: {this.props.symbol}</p>
                     <p>Name: {this.props.title}</p>
-                    <button onClick={this.props.handleSubmit}>Add to Watchlist</button>
+                    <button value={this.props.value} onClick={()=>this.props.handleSubmit(this.props.symbol, this.props.title)}>Add to Watchlist</button>
                 </li>
             </div>
         )
