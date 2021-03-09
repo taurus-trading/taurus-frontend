@@ -4,12 +4,13 @@ import TrendingLI from './TrendingLI.js';
 export default class TrendingDiv extends Component {
 
     render() {
-        const trendingList = this.props.trendingList.map(trendingItem => {
+        const trending = this.props.trendingList.map(trendingItem => {
             return (
                 <TrendingLI 
-                key={trendingItem.symbols.id}
-                symbol= {trendingItem.symbols.symbol}
-                Name= {trendingItem.symbols.title} 
+                key={trendingItem.id}
+                symbol= {trendingItem.symbol}
+                title= {trendingItem.title}
+                handleSubmit = {this.props.handleSubmit} 
                 />
 
             )
@@ -17,7 +18,7 @@ export default class TrendingDiv extends Component {
         return (
             <div>
                 <ul>
-                   {trendingList}
+                   {trending}
                 </ul>
             </div>
         )

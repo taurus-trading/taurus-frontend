@@ -5,8 +5,8 @@ import StockGraph from './chart/Graph.js';
 import NoteDisplay from './details/NotesDisplay.js';
 import TweetsDiv from './social/TweetsDiv.js';
 import './social.css';
-import { getTwits, getTrending } from '../utils/api-utils.js';
-import TrendingDiv from './trending/TrendingDiv.js';
+import { getTwits } from '../utils/api-utils.js';
+import TrendingDiv from '../new-user-page/trending/TrendingDiv.js';
  
 
 export default class Dashboard extends Component {
@@ -30,8 +30,6 @@ export default class Dashboard extends Component {
         const staticTweets = await getTwits(this.state.ticker)
         this.setState({tweets: staticTweets.messages})
 
-        const trending = await getTrending();
-        this.setState({trending})
     }
     
     componentWillUnmount = () => {
@@ -73,10 +71,7 @@ console.log(this.state)
                 notes section
                 
                 />
-                {/* <TrendingDiv 
-                symbol={this.props.trending}
-                name={this.props.trending}
-                /> */}
+ 
             </div>
 
             <div className='tweet-div'>

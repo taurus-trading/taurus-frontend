@@ -54,6 +54,14 @@ export default class App extends Component {
                               // user={this.state.user} 
                               />} 
                         />
+                          <Route 
+                            path="/newUser" 
+                            exact
+                            render={(routerProps) => <AboutPage 
+                              {...routerProps} 
+                              // user={this.state.user} 
+                              />} 
+                        />
 
                         {/* <PrivateRoute 
                             path="/dashboard" 
