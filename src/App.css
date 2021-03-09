@@ -23,16 +23,17 @@
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
-  animation: tickerMove 30s infinite;
+  animation: tickerMove 20s infinite;
 }
 .ticker-item{
   width: 115px;
   overflow: hidden;
+  padding: 5px;
 }
 
 @keyframes tickerMove {
   0%   {right: 0px;}
-  50%   {right: 50%}
+  50%   {right: 26%}
   /* 75%   {right: 25%} */
   100% {right: 0px}
 } 
