@@ -36,7 +36,7 @@ export async function addToPortfolio(token, symbol, title, quantity, current_pri
     const date_purchased = d.getTime();
     const cost = quantity * current_price;
     const response = request.post(`${BACK_END_URL}/api/portfolio`).set('Authorization', token).send({
-        symbol, title, quantity, date_purchased, cost, quantity, current_price
+        symbol, title, quantity, date_purchased, cost, current_price
     })
 
     return response.body;
