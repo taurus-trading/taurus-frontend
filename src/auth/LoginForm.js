@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { loginUser } from '../utils/user-utils.js';
+// import request from 'superagent';
+import {withRouter} from 'react-router-dom';
 
 
-export default class LoginForm extends Component {
+class LoginForm extends Component {
     state = {
         email: '',
         password: '',
@@ -19,9 +21,9 @@ export default class LoginForm extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const user = await loginUser();
+        const token = await loginUser(this.state.email, this.state.password);
 
-        this.props.handleUserChange(user);
+        this.props.handleUserChange(token);
         this.props.history.push('/dashboard');
     }
     render() {
@@ -37,9 +39,10 @@ export default class LoginForm extends Component {
                         <input value={this.state.password} onChange={this.handlePassword}  />
                     </label>
 
-                    <button>Sign Up</button>
+                    <button>Login</button>
                 </form>
             </div>
         )
     }
 }
+export const LoginWithRouter = withRouter(LoginForm);

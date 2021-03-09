@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import LoginForm from './LoginForm'
-import SignUpForm from './SignupForm';
+// import LoginForm from './LoginForm'
+import {LoginWithRouter} from './LoginForm.js';
+import { SignupWithRouter } from './SignupForm.js';
 
 export default class LoginSignupPage extends Component {
     state = {
@@ -11,8 +12,10 @@ export default class LoginSignupPage extends Component {
     render() {
         return (
             <div>
-                <LoginForm handleUserChange={this.props.handleUserChange} />
-                <SignUpForm handleUserChange={this.props.handleUserChange} />
+                
+                <LoginWithRouter 
+                handleUserChange={this.props.handleUserChange} />
+                <SignupWithRouter handleUserChange={this.props.handleUserChange} />
             </div>
         )
     }

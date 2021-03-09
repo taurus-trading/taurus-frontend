@@ -10,8 +10,18 @@ import AboutPage from './about/AboutPage.js'
 import Header from './components/Header.js'
 
 import React, { Component } from 'react'
+import { addUserToLocalStorage, getUserFromLocalStorage } from './utils/user-utils';
 
 export default class App extends Component {
+  state = {
+    token: getUserFromLocalStorage(),
+  }
+
+    handleUserChange = (token) => {
+      this.setState({token: token})
+      addUserToLocalStorage(token)
+    }
+
   render() {
     return (
       <div>
@@ -24,7 +34,9 @@ export default class App extends Component {
                         <Route 
                             path="/" 
                             exact
-                            render={(routerProps) => <LoginSignupPage {...routerProps} />} 
+                            render={(routerProps) => <LoginSignupPage 
+                              handleUserChange={this.handleUserChange}
+                              {...routerProps} />} 
                         />
                         <Route 
                             path="/dashboard" 

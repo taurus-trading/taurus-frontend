@@ -1,12 +1,12 @@
-import { request } from 'superagent'
+import request from 'superagent';
 const TOKEN = 'TOKEN';
-const BACK_END_URL = 'https://taurus-backend.herokuapp.com/';
+const BACK_END_URL = 'https://taurus-backend.herokuapp.com';
 
 //USER UTILS
 export async function signUpUser(email, password) {
     const response = await request.post(`${BACK_END_URL}/auth/signup`).send({email, password});
 
-    return response.body
+    return response.body.token
 }
 
 export async function fillUserNameAndDate(user_name, token) {
@@ -20,7 +20,7 @@ export async function fillUserNameAndDate(user_name, token) {
 export async function loginUser(email, password) {
     const response = await request.post(`${BACK_END_URL}/auth/signin`).send({email, password});
 
-    return response.body;
+    return response.body.token;
 }
 
 
