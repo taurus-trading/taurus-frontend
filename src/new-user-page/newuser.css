@@ -12,3 +12,13 @@ p {
     height: 500px;
     overflow-y: scroll;
 }
+.new-user-wrapper {
+    display: flex;
+}
+
+.advice-articles {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+
+}
