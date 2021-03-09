@@ -1,5 +1,5 @@
 import { request } from 'superagent'
-const USER = 'USER';
+const TOKEN = 'TOKEN';
 const BACK_END_URL = 'https://taurus-backend.herokuapp.com/';
 
 //USER UTILS
@@ -12,7 +12,7 @@ export async function signUpUser(email, password) {
 export async function fillUserNameAndDate(user_name, token) {
     const date = new Date();
     const inMillis = date.getTime();
-    const response = await request.post(`${BACK_END_URL}/updateuser`).send({user_name, inMillis}).set('Authorization', token);
+    const response = await request.put(`${BACK_END_URL}/updateuser`).send({user_name, inMillis}).set('Authorization', token);
 
     return response.body
 }
@@ -63,15 +63,15 @@ export async function deleteFromWatchList(token, id) {
 }
 
 //local storage functions
-export async function addUserToLocalStorage(user) {
-    localStorage.setItem(USER, user)
+export async function addUserToLocalStorage(token) {
+    localStorage.setItem(TOKEN, token)
 }
 
 export async function getUserFromLocalStorage() {
-    return localStorage.getItem(USER)
+    return localStorage.getItem(TOKEN)
 }
 
 
 export async function removeUserFromLocalStorage() {
-    localStorage.removeItem(USER)
+    localStorage.removeItem(TOKEN)
 }
