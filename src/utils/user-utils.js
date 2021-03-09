@@ -31,7 +31,7 @@ export async function getUserPortfolio(token) {
     return response.body;
 }
 
-export async function addToPortfolio(token, symbol, title, date_purchased, quantity, current_price) {
+export async function addToPortfolio(token, symbol, title, quantity, current_price) {
     const d = new Date();
     const date_purchased = d.getTime();
     const cost = quantity * current_price;
