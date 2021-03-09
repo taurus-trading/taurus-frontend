@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class SearchPage extends Component {
+export default class SearchSection extends Component {
     render() {
         return (
             <div>

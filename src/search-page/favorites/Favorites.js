@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-export default class Favorite extends Component {
+export default class Favorites extends Component {
     render() {
         return (
             <div>
-                
+                fav
             </div>
         )
     }
