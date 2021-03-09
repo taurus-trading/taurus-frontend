@@ -15,9 +15,11 @@ export default class LoginSignupPage extends Component {
         return (
             <div>
                 <BackgroundImage />
-                <LoginWithRouter 
-                handleUserChange={this.props.handleUserChange} />
-                <SignupWithRouter handleUserChange={this.props.handleUserChange} />
+                <div className="user-form">
+                    <LoginWithRouter 
+                    handleUserChange={this.props.handleUserChange} />
+                    <SignupWithRouter handleUserChange={this.props.handleUserChange} />
+                </div>
             </div>
         )
     }
