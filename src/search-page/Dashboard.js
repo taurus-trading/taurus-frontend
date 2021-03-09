@@ -32,14 +32,15 @@ export default class Dashboard extends Component {
 
         const trending = await getTrending();
         this.setState({trending})
+       
     }
     
     componentWillUnmount = () => {
         clearInterval(this.state.timer);
     }
-
     render() {
-console.log(this.state)
+        console.log(this.state.trending);
+
         return (
             <>
             <div>
@@ -74,8 +75,9 @@ console.log(this.state)
                 
                 />
                 {/* <TrendingDiv 
-                symbol={this.props.trending}
-                name={this.props.trending}
+                trendingList={this.state.trending}
+                // symbol={this.props.trending}
+                // name={this.props.trending}
                 /> */}
             </div>
 
