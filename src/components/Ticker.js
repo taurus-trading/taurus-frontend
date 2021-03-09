@@ -7,8 +7,6 @@ export default class Ticker extends Component {
     }
     componentDidMount = async () => {
         const trendingResponse = await getTrending();
-        console.log(trendingResponse.symbols);
-
         this.setState({trending: trendingResponse.symbols})
     }
 
@@ -20,8 +18,8 @@ export default class Ticker extends Component {
             <>
                 {
                    this.state.trending.map(trendingItem => {
-                    return <li className='ticker-item'><span>{trendingItem.symbol}</span><br/><span>{trendingItem.title}</span>
-                    {/* <span>{getCurrentStockPrice(trendingItem.symbol)}</span> */}
+                    return <li key={trendingItem.symbol} className='ticker-item'><span className='sym'>{trendingItem.symbol}</span><br/><span>{trendingItem.title}</span>
+                   
                     </li>
                 }) 
                 }

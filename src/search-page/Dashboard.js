@@ -39,7 +39,6 @@ export default class Dashboard extends Component {
         clearInterval(this.state.timer);
     }
     render() {
-        console.log(this.state.trending);
 
         return (
             <>
@@ -64,7 +63,7 @@ export default class Dashboard extends Component {
             <div>
                 <StockGraph 
 
-                graph section
+                
                 ticker={this.state.ticker}
 
 
