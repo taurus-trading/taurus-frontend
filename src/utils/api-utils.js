@@ -1,5 +1,6 @@
 const BACK_END_URL = 'https://taurus-backend.herokuapp.com/';
 
+
 export async function getTwits(symbol) {
     const response = request.get(`${BACK_END_URL}/twits?search=${symbol}`);
 
