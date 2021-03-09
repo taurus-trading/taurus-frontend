@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { signUpUser } from '../utils/user-utils.js';
+import {withRouter} from 'react-router-dom';
 
-export default class Login extends Component {
+
+class Signup extends Component {
     state = {
         email: '',
         password: '',
@@ -23,10 +25,10 @@ export default class Login extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const user = await signUpUser();
+        const token = await signUpUser(this.state.email, this.state.password);
 
-        this.props.handleUserChange(user);
-        this.props.history.push('/newUserPage');
+        this.props.handleUserChange(token);
+        this.props.history.push('/dashboard');
     }
     render() {
         return (
@@ -51,3 +53,5 @@ export default class Login extends Component {
         )
     }
 }
+
+export const SignupWithRouter = withRouter(Signup);
