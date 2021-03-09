@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { signUpUser } from '../utils/user-utils.js';
+import { signUpUser, fillUserNameAndDate } from '../utils/user-utils.js';
 import {withRouter} from 'react-router-dom';
 
 
@@ -27,6 +27,8 @@ class Signup extends Component {
 
         const token = await signUpUser(this.state.email, this.state.password);
 
+        await fillUserNameAndDate(this.state.username, token);
+        
         this.props.handleUserChange(token);
         this.props.history.push('/dashboard');
     }
