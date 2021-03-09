@@ -12,7 +12,7 @@ export async function getTwits(symbol) {
 
 export async function getTrending() {
     const response = await request.get(`${BACK_END_URL}/trending`);
-
+    
     return response.body;
 }
 

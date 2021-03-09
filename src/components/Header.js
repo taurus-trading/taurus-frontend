@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import {NavLink} from 'react-router-dom';
+import TickerMarquee from './TickerMarquee.js'
 
 export default class Header extends Component {
     render() {
         return (
-            <div>
+            <div className='header-div'>
+            <div >
                 <NavLink  activeClassName="active" className='links' exact to="/">Home</NavLink>
                 <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
                 {
@@ -14,7 +16,12 @@ export default class Header extends Component {
                 <button onClick={this.props.handleLogout}>Sign out</button>
                 </>
                 }
-                
+                <br/>
+                <br/>
+            </div>
+            <div>   
+                <TickerMarquee />
+            </div>
             </div>
         )
     }

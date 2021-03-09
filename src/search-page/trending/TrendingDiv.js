@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import TrendingLI from './TrendingLI.js';
 
 export default class TrendingDiv extends Component {
-
     render() {
-        const trendingList = this.props.trendingList.map(trendingItem => {
-            return (
+        const { trendingList } = this.props;
+        console.log(trendingList.symbols);
+        console.log(trendingList);
+        trendingList.map(trendingItem => {
+        return (
                 <TrendingLI 
                 key={trendingItem.symbols.id}
                 symbol= {trendingItem.symbols.symbol}
