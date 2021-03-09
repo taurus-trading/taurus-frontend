@@ -1,3 +1,5 @@
+import { request } from 'superagent';
+
 const BACK_END_URL = 'https://taurus-backend.herokuapp.com/';
 
 export async function getTwits(symbol) {
