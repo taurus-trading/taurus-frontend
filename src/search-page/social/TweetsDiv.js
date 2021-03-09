@@ -13,7 +13,7 @@ export default class TweetComponent extends Component {
                 avatar_url={tweet.user.avatar_url}
                 symbol={this.props.symbol}
                 message={tweet.body}
-                image='https://charts.stocktwits.com/production/original_301242987.png'
+                // image={tweet.entities.chart.url || ''} 
                 />
             )
         })

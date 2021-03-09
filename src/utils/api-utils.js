@@ -9,13 +9,20 @@ export async function getTwits(symbol) {
 
     return response.body;
 }
+
+export async function getTrending() {
+    const response = await request.get(`${BACK_END_URL}/trending`);
+
+    return response.body;
+}
+
 export async function getCurrentStockPrice(symbol) {
-    const response = request.get(`${BACK_END_URL}/currentprice?search=${symbol}`);
+    const response = await request.get(`${BACK_END_URL}/currentprice?search=${symbol}`);
 
     return response.body;
 }
 export async function getStockPriceHistory(symbol, resolution, toDate, fromDate) {
-    const response = request.get(`${BACK_END_URL}/pricehistory?symbol=${symbol}&resolution=${resolution}&to=${toDate}&from=${fromDate}`);
+    const response = await request.get(`${BACK_END_URL}/pricehistory?symbol=${symbol}&resolution=${resolution}&to=${toDate}&from=${fromDate}`);
 
     return response.body;
 }
