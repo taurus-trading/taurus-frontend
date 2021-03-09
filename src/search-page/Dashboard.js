@@ -4,21 +4,48 @@ import Favorites from './favorites/Favorites.js'
 import StockGraph from './chart/Graph.js';
 import NoteDisplay from './details/NotesDisplay.js';
 import TweetsDiv from './social/TweetsDiv.js';
+import './social.css';
+import { getTwits, getTrending } from '../utils/api-utils.js';
+import TrendingDiv from './trending/TrendingDiv.js';
  
 
 export default class Dashboard extends Component {
+
+
     state= {
         ticker: 'GME',
         token: '',
+        tweets:[],
+        trending: [],
+        timer: null,
+    }
+
+    componentDidMount = async () => {
+        // this.setState({timer: setInterval(async() => {
+        //     const tweetStream = await getTwits(this.state.ticker)
+
+        //     this.setState({tweets: tweetStream.messages})
+        // }, 10000)})
+
+        const staticTweets = await getTwits(this.state.ticker)
+        this.setState({tweets: staticTweets.messages})
+
+        const trending = await getTrending();
+        this.setState({trending})
+    }
+    
+    componentWillUnmount = () => {
+        clearInterval(this.state.timer);
     }
 
     render() {
+console.log(this.state)
         return (
             <>
             <div>
                 <SearchSection
-
-
+                
+                search section
                 ticker={this.state.ticker}
 
 
@@ -26,7 +53,7 @@ export default class Dashboard extends Component {
                 
                 <Favorites 
 
-
+                favorites section
                 token={this.state.token}
 
 
@@ -36,22 +63,27 @@ export default class Dashboard extends Component {
             <div>
                 <StockGraph 
 
-
+                graph section
                 ticker={this.state.ticker}
 
 
                 />
 
                 <NoteDisplay 
-                
+                notes section
                 
                 />
+                {/* <TrendingDiv 
+                symbol={this.props.trending}
+                name={this.props.trending}
+                /> */}
             </div>
 
-            <div>
+            <div className='tweet-div'>
+                <h2>Live Feed</h2>
                 <TweetsDiv 
-                
-                
+                tweets={this.state.tweets}
+                symbol={this.state.ticker}
                 />
             </div>
 
