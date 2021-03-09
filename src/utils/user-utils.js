@@ -9,11 +9,10 @@ export async function signUpUser(email, password) {
     return response.body.token
 }
 
-export async function fillUserNameAndDate(user_name, token) {
+export async function fillUserNameAndDate(username, token) {
     const date = new Date();
-    const inMillis = date.getTime();
-    const response = await request.put(`${BACK_END_URL}/api/updateuser`).send({user_name, inMillis}).set('Authorization', token);
-
+    const date_created = date.getTime();
+    const response = await request.put(`${BACK_END_URL}/api/updateuser`).send({username, date_created}).set('Authorization', token);
     return response.body
 }
 

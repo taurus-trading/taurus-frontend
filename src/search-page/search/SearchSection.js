@@ -17,11 +17,12 @@ export default class SearchSection extends Component {
         return (
             <div>
                 <SearchForm handleSubmit={this.handleSearchSubmit} />
-                <>
                 {
-                    this.state.searchResults.length >  0 ? this.state.map()<SearchItem />
+                    this.state.searchResults.length > 0 && this.state.searchResults.map( stock => {
+                        return <StockItem stockInfo={stock}/>
+                    }
+                    )
                 }
-                </>
             </div>
         )
     }
