@@ -6,6 +6,9 @@ export default class Header extends Component {
     render() {
         return (
             <div className='header-div'>
+                            <div>   
+                <TickerMarquee />
+            </div>
             <div className='nav'>
                 <NavLink  activeClassName="active" className='links' exact to="/">Home</NavLink>
                 <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
@@ -21,9 +24,7 @@ export default class Header extends Component {
                 <br/>
                 <br/>
             </div>
-            <div>   
-                <TickerMarquee />
-            </div>
+
             </div>
         )
     }
