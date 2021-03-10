@@ -11,7 +11,7 @@ import {createConvertStartOfDay, generateInterval, getCurrentTimeMilli} from '..
 
 export default class StockGraph extends Component {
     state ={
-        ticker: this.props.ticker,
+        ticker: '',
         dataPoints: [],
         startDate: '',
         currentTimeMilli: '',
@@ -21,6 +21,7 @@ export default class StockGraph extends Component {
     componentDidMount = async () => {
         //by default graph is displayed from start of today's date
         await this.setState({startDate: createConvertStartOfDay()});
+        this.setState({ticker: this.props.ticker});
        //by default graph is displayed up until the current time
         await this.setState({currentTimeMilli: getCurrentTimeMilli()});
         const data =  await getStockPriceHistory(this.state.ticker, 
@@ -28,7 +29,18 @@ export default class StockGraph extends Component {
             this.state.currentTimeMilli, 
             this.state.startDate);
         this.setState({dataPoints: data.c});
-       
+    }
+    componentDidUpdate = async () => {
+        if(this.props.ticker !== this.state.ticker){
+            this.setState({ticker: this.props.ticker})
+            const interval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
+            await this.setState({priceInterval: interval})
+            const data =  await getStockPriceHistory(this.state.ticker, 
+                this.state.priceInterval, 
+                this.state.currentTimeMilli, 
+                this.state.startDate);
+            this.setState({dataPoints: data.c});
+        }
     }
     
     handleChange = (date) => {
