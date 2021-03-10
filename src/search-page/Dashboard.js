@@ -47,32 +47,18 @@ export default class Dashboard extends Component {
         return (
             <div className="dashboard">
                 <LeftSidebar 
-                token={this.props.token}
-                handleStockSelect = {this.handleStockSelect}
+                    token={this.props.token}
+                    handleStockSelect = {this.handleStockSelect}
                 />
 
                 <div>
                     <StockGraph ticker={this.state.ticker}/>
 
-                    <NoteDisplay
-                        notes section
-
-
-                />
-
-                <NoteDisplay 
-                token={this.state.token}
-                
-                />
-                {/* <TrendingDiv 
+                    <NoteDisplay 
+                        token={this.props.token}
                     />
-                    {/* <TrendingDiv 
-                trendingList={this.state.trending}
-                // symbol={this.props.trending}
-                // name={this.props.trending}
-                /> */}
-                </div>
 
+                </div>
 
                 <div className='tweet-div'>
                     <h2>Live Feed</h2>
