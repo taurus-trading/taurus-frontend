@@ -30,7 +30,7 @@ class Signup extends Component {
         await fillUserNameAndDate(this.state.username, token);
         
         this.props.handleUserChange(token);
-        this.props.history.push('/dashboard');
+        this.props.history.push('/newuser');
     }
     render() {
         return (
