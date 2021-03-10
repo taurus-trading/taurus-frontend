@@ -58,7 +58,7 @@ export default class App extends Component {
                               />} 
                         />
                           <Route 
-                            path="/newUser" 
+                            path="/newuser" 
                             exact
                             render={(routerProps) => <NewUserPage
                               token={this.state.token} 

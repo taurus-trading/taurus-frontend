@@ -9,7 +9,7 @@ export default class Header extends Component {
             <div className='nav'>
                 <NavLink  activeClassName="active" className='links' exact to="/">Home</NavLink>
                 <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
-                <NavLink activeClassName="active" className='links' exact to="/newUser">New User</NavLink>
+                <NavLink activeClassName="active" className='links' exact to="/newuser">New User</NavLink>
                 <NavLink activeClassName="active" className='links' exact to="/portfolio">Portfolio</NavLink>
                 {
                 this.props.user && this.props.user.token && <>
