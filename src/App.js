@@ -6,9 +6,10 @@ import {
 } from 'react-router-dom';
 import LoginSignupPage from './auth/LoginSignupPage.js';
 import Dashboard from './search-page/Dashboard.js';
-import AboutPage from './about/AboutPage.js'
-import Header from './components/Header.js'
-import NewUserPage from './new-user-page/NewUserPage.js'
+import AboutPage from './about/AboutPage.js';
+import Header from './components/Header.js';
+import NewUserPage from './new-user-page/NewUserPage.js';
+import PortfolioPage from './search-page/portfolio/PortfolioPage.js';
 
 import React, { Component } from 'react'
 import { addUserToLocalStorage, getUserFromLocalStorage } from './utils/user-utils';
@@ -60,6 +61,15 @@ export default class App extends Component {
                             path="/newUser" 
                             exact
                             render={(routerProps) => <NewUserPage
+                              token={this.state.token} 
+                              {...routerProps} 
+                              // user={this.state.user} 
+                              />} 
+                        />
+                        <Route 
+                            path="/portfolio" 
+                            exact
+                            render={(routerProps) => <PortfolioPage
                               token={this.state.token} 
                               {...routerProps} 
                               // user={this.state.user} 

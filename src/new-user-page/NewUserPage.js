@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import TrendingDiv from './TrendingDiv.js';
-import {getTrending} from '../utils/api-utils.js'
+import StockAdvice from './StockAdvice.js';
+import {getTrending} from '../utils/api-utils.js';
 import { addToWatchList } from '../utils/user-utils.js';
 import './newuser.css';
 
@@ -25,11 +26,16 @@ export default class NewUserPage extends Component {
     render() {
         console.log(this.state)
         return (
-            <div className='trending-list'>
-                <TrendingDiv 
-                trendingList={this.state.trending}
-                handleSubmit={this.handleSubmit}
-                />
+            <div className='new-user-wrapper'>
+                <div className='trending-list'>
+                    <TrendingDiv 
+                    trendingList={this.state.trending}
+                    handleSubmit={this.handleSubmit}
+                    />
+                </div>
+                <div>
+                    <StockAdvice />
+                </div>
             </div>
         )
     }
