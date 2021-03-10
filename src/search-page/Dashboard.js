@@ -61,11 +61,18 @@ export default class Dashboard extends Component {
                 />
 
                 <NoteDisplay 
-                notes section
+                token={this.state.token}
                 
                 />
- 
-            </div>
+                {/* <TrendingDiv 
+                    />
+                    {/* <TrendingDiv 
+                trendingList={this.state.trending}
+                // symbol={this.props.trending}
+                // name={this.props.trending}
+                /> */}
+                </div>
+
 
                 <div className='tweet-div'>
                     <h2>Live Feed</h2>
