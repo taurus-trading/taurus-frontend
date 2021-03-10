@@ -84,7 +84,7 @@ export async function getUserNotes(token) {
 }
 
 export async function createNote(token, text) {
-    const response = await (await request.post(`${BACK_END_URL}/api/notes`)).set('Authorization', token).send({ text });
+    const response = await request.post(`${BACK_END_URL}/api/notes`).set('Authorization', token).send({ text });
 
     return response.body;
 }
