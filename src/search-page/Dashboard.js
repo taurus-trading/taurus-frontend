@@ -43,10 +43,11 @@ export default class Dashboard extends Component {
     }
     handleStockSelect = async (ticker) => {
         const staticTweets = await getTwits(ticker)
-        this.setState({
+        await this.setState({
             ticker: ticker,
             tweets: staticTweets.messages
         })
+        console.log(`this is ticker in dashboard ${this.state.ticker}`);
     }
 
     render() {
