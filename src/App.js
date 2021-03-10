@@ -10,6 +10,7 @@ import AboutPage from './about/AboutPage.js';
 import Header from './components/Header.js';
 import NewUserPage from './new-user-page/NewUserPage.js';
 import PortfolioPage from './search-page/portfolio/PortfolioPage.js';
+import SignupPage from './auth/SignupPage.js';
 
 import React, { Component } from 'react'
 import { addUserToLocalStorage, getUserFromLocalStorage } from './utils/user-utils';
@@ -57,7 +58,7 @@ export default class App extends Component {
                               />} 
                         />
                           <Route 
-                            path="/newUser" 
+                            path="/newuser" 
                             exact
                             render={(routerProps) => <NewUserPage
                               token={this.state.token} 
@@ -69,6 +70,15 @@ export default class App extends Component {
                             path="/portfolio" 
                             exact
                             render={(routerProps) => <PortfolioPage
+                              token={this.state.token} 
+                              {...routerProps} 
+                              // user={this.state.user} 
+                              />} 
+                        />
+                          <Route 
+                            path="/signup" 
+                            exact
+                            render={(routerProps) => <SignupPage
                               token={this.state.token} 
                               {...routerProps} 
                               // user={this.state.user} 

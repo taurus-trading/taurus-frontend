@@ -6,6 +6,7 @@ import TweetsDiv from './social/TweetsDiv.js';
 import './social.css';
 import { getTwits} from '../utils/api-utils.js';
 import LeftSidebar from './LeftSideBar/LeftSidebar.js';
+import { getUserNotes } from '../utils/user-utils.js';
 // import hardTweets from './hard-coded-tweets.js'
 //import TrendingDiv from './trending/TrendingDiv.js';
 
@@ -19,6 +20,7 @@ export default class Dashboard extends Component {
         tweets: [],
         trending: [],
         timer: null,
+        notes: [], 
     }
 
     componentDidMount = async () => {
@@ -30,6 +32,9 @@ export default class Dashboard extends Component {
 
         const staticTweets = await getTwits(this.state.ticker)
         this.setState({ tweets: staticTweets.messages })
+
+        const userNotes = await getUserNotes(this.props.token);
+        this.setState({ userNotes: userNotes });
 
     }
 
@@ -44,6 +49,7 @@ export default class Dashboard extends Component {
         })
         console.log(`this is ticker in dashboard ${this.state.ticker}`);
     }
+
     render() {
         return (
             <div className="dashboard">

@@ -15,7 +15,7 @@ export default class NoteDisplay extends Component {
         console.log(this.state.userNotes)
     }
 
-    handleInputChange = (e) => {
+    handleInputChange = async (e) => {
         this.setState({ noteInput: e.target.value });
     }
 
@@ -28,17 +28,22 @@ export default class NoteDisplay extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log('submitted ' , this.state.noteInput, this.props.token)
         await createNote(this.props.token, this.state.noteInput);
+
+        const notes = await getUserNotes(this.props.token);
+
+        this.setState({ userNotes: notes });
     }
 
     render() {
+        //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYxNTQwMTQ1MH0.w22bAzZKgzYIhQ0HlWhJDzX-r8pZ4ZZ1gX8FmRgj0eg
         return (
             <div>
-                <NotesInput noteInput={this.state.noteInput} handleInputChange={this.handleInputChange} />
+                <NotesInput noteInput={this.state.noteInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} />
                 <ul>
                     {
-                    this.state.userNotes.map(note => <NotesItem userEntry={note.text} />)
+                    this.state.userNotes.map(note => <NotesItem key={note.text} userEntry={note.text} />)
                     }
                 </ul>
             </div>
