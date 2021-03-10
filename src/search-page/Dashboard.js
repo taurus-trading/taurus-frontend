@@ -14,7 +14,7 @@ export default class Dashboard extends Component {
 
 
     state = {
-        ticker: 'GME',
+        ticker: 'TSLA',
         token: '',
         tweets: [],
         trending: [],
