@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import DataTable from 'react-data-table-component';
 import stocks from './hard-coded-portfolio.js';
 
-const data = [{ user_id: 1, transaction_id: 5, ticker: 'GME', date_purchased: '2021-03-09', quantity: 10, purchase_price: 250, cost_basis: 2500, market_value: 265, unrealized_gain_loss: 150, realized_gain_loss: 0 },{ user_id: 1, transaction_id: 5, ticker: 'GME', date_purchased: '2021-03-09', quantity: 10, purchase_price: 250, cost_basis: 2500, market_value: 265, unrealized_gain_loss: 150, realized_gain_loss: 0 },{ user_id: 1, transaction_id: 5, ticker: 'GME', date_purchased: '2021-03-09', quantity: 10, purchase_price: 250, cost_basis: 2500, market_value: 265, unrealized_gain_loss: 150, realized_gain_loss: 0 } ];
-
 const newData = stocks.map(item => {
     
     return {
