@@ -14,7 +14,7 @@ export function generateInterval(start,end){
     const difference = end - start;
     if(difference <= oneDay){
         return 15;
-    } else if (difference > oneDay && difference <= oneDay * 30){
+    } else if (difference > oneDay && difference <= oneWeek * 4){
         return 60;
     } else if(difference > oneDay * 30){
         return 'D';
