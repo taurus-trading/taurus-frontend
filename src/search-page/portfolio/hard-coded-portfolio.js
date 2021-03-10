@@ -29,9 +29,9 @@ const stocks = [
         ticker: 'GLD', 
         date_purchased: '2021-03-09', 
         quantity: 18, 
-        purchase_price: 35, 
+        purchase_price: 350, 
         cost_basis: 0, 
-        current_price: 26, 
+        current_price: 260, 
         unrealized_gain_loss: 0, 
         realized_gain_loss: 0 
     }, 

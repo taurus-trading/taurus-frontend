@@ -23,6 +23,9 @@ p {
     width: 600px;
 
 }
-img {
+
+
+.article-image {
     width: 580px;
+    margin-bottom: 25px;
 }

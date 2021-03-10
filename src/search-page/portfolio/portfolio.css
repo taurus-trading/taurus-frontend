@@ -1,0 +1,10 @@
+
+
+.watchlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.add-portfolio {
+    width: 160px;
+}
