@@ -4,22 +4,28 @@ import SearchForm from './SearchForm'
 import SearchItem from './SearchItem.js'
 
 export default class SearchSection extends Component {
+    state = {
+        searchResults: []
+    }
+    handleSearchSubmit = async (search) => {
+        const searchResults = await searchStocks(search);
+        this.setState({
+            searchResults: searchResults.result
+        })
+    }
     render() {
-        state = {
-            searchResults: []
-        }
-        handleSearchSubmit = async (search) => {
-            const searchResults = await searchStocks(search);
-            this.setState({
-                searchResults
-            })
-        }
         return (
-            <div>
-                <SearchForm handleSubmit={this.handleSearchSubmit} />
+            <div className="searchSection border">
+                <SearchForm handleSearchSubmit={this.handleSearchSubmit} />
                 {
-                    this.state.searchResults.length > 0 && this.state.searchResults.map( stock => {
-                        return <StockItem stockInfo={stock}/>
+                    this.state.searchResults.length > 0 && this.state.searchResults.map( (stock, i) => {
+                        return <SearchItem 
+                                stockInfo={stock} 
+                                token={this.props.token} 
+                                key={i} 
+                                handleStockSelect={this.props.handleStockSelect}
+                                increaseFavoritesCount={this.props.increaseFavoritesCount}
+                                />
                     }
                     )
                 }

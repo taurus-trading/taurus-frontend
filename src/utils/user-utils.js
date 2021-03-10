@@ -25,7 +25,7 @@ export async function loginUser(email, password) {
 
 // PORTFOLIO UTILS
 export async function getUserPortfolio(token) {
-    const response = request.get(`${BACK_END_URL}/api/portfolio`).set('Authorization', token)
+    const response = await request.get(`${BACK_END_URL}/api/portfolio`).set('Authorization', token)
 
     return response.body;
 }
@@ -44,29 +44,29 @@ export async function addToPortfolio(token, symbol, title, quantity, current_pri
 
 //WATCH LIST UTILS
 export async function getUserWatchList(token) {
-    const response = request.get(`${BACK_END_URL}/api/watchlist`).set('Authorization', token);
+    const response = await request.get(`${BACK_END_URL}/api/watchlist`).set('Authorization', token);
 
     return response.body;
 }
 export async function addToWatchList(token, symbol, title) {
-    const response = request.post(`${BACK_END_URL}/api/watchlist`).set('Authorization', token).send({
+    const response = await request.post(`${BACK_END_URL}/api/watchlist`).set('Authorization', token).send({
         symbol, title
     });
 
     return response.body;
 }
 export async function deleteFromWatchList(token, id) {
-    const response = request.delete(`${BACK_END_URL}/api/watchlist/${id}`).set('Authorization', token);
+    const response = await request.delete(`${BACK_END_URL}/api/watchlist/${id}`).set('Authorization', token);
 
     return response.body;
 }
 
 //local storage functions
-export async function addUserToLocalStorage(token) {
+export function addUserToLocalStorage(token) {
     localStorage.setItem(TOKEN, token)
 }
 
-export async function getUserFromLocalStorage() {
+export function getUserFromLocalStorage() {
     return localStorage.getItem(TOKEN)
 }
 
