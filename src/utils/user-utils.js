@@ -75,3 +75,16 @@ export async function getUserFromLocalStorage() {
 export async function removeUserFromLocalStorage() {
     localStorage.removeItem(TOKEN)
 }
+
+//user notes functions
+export async function getUserNotes(token) {
+    const response = await request.get(`${BACK_END_URL}/auth/notes`).set('Authorization', token);
+
+    return response.body;
+}
+
+export async function createNote(token, newNote) {
+    const response = await (await request.post(`${BACK_END_URL}/auth/notes`)).set('Authorization', token).send(newNote);
+
+    return response.body;
+}

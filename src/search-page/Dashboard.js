@@ -71,7 +71,7 @@ export default class Dashboard extends Component {
                 />
 
                 <NoteDisplay 
-                notes section
+                token={this.state.token}
                 
                 />
                 {/* <TrendingDiv 
