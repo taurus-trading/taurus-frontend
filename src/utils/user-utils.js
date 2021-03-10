@@ -71,6 +71,6 @@ export function getUserFromLocalStorage() {
 }
 
 
-export async function removeUserFromLocalStorage() {
+export function removeUserFromLocalStorage() {
     localStorage.removeItem(TOKEN)
 }

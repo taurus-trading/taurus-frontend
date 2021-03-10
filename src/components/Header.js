@@ -9,6 +9,8 @@ export default class Header extends Component {
             <div >
                 <NavLink  activeClassName="active" className='links' exact to="/">Home</NavLink>
                 <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
+                <NavLink activeClassName="active" className='links' exact to="/newUser">New User</NavLink>
+                <NavLink activeClassName="active" className='links' exact to="/portfolio">Portfolio</NavLink>
                 {
                 this.props.user && this.props.user.token && <>
                 {/* once we have a user signed in this should work to display the portfolio page */}
