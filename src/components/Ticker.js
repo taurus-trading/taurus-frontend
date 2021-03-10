@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {getTrending} from '../utils/api-utils.js'
-
+import { getTrending } from '../utils/api-utils.js'
 
 export default class Ticker extends Component {
     state = {
