@@ -16,11 +16,11 @@ export default class TrendingDiv extends Component {
             )
         })
         return (
-            <div>
-                <ul className='trending-ul'>
+     
+                <>
                    {trending}
-                </ul>
-            </div>
+                </>
+
         )
     }
 }
