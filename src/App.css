@@ -13,6 +13,9 @@
  display: grid;
  grid-template-columns: repeat(1fr, 12);
  overflow: hidden;
+ background-color: black;
+ color: white;
+ 
 }
 .ticker-list {
   float: left;
@@ -37,10 +40,10 @@
   100% {right: 0px}
 } 
 .sym{
-  color: green;
+  color: rgb(4, 252, 4);
   font-weight: bold;
+  text-shadow: -2px 0 10px red;
 }
-
-.recharts-wrapper{
-  background-color: rgba(0,0,0,1);
+.nav {
+  background-color: white;
 }
