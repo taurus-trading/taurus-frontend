@@ -8,6 +8,7 @@ import LoginSignupPage from './auth/LoginSignupPage.js';
 import Dashboard from './search-page/Dashboard.js';
 import AboutPage from './about/AboutPage.js'
 import Header from './components/Header.js'
+import NewUserPage from './new-user-page/NewUserPage.js'
 
 import React, { Component } from 'react'
 import { addUserToLocalStorage, getUserFromLocalStorage } from './utils/user-utils';
@@ -23,6 +24,7 @@ export default class App extends Component {
     }
 
   render() {
+    console.log(this.state.token)
     return (
       <div>
         <Router>
@@ -50,6 +52,15 @@ export default class App extends Component {
                             path="/about" 
                             exact
                             render={(routerProps) => <AboutPage 
+                              {...routerProps} 
+                              // user={this.state.user} 
+                              />} 
+                        />
+                          <Route 
+                            path="/newUser" 
+                            exact
+                            render={(routerProps) => <NewUserPage
+                              token={this.state.token} 
                               {...routerProps} 
                               // user={this.state.user} 
                               />} 

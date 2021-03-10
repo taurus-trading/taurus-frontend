@@ -4,9 +4,11 @@ import StockGraph from './chart/Graph.js';
 import NoteDisplay from './details/NotesDisplay.js';
 import TweetsDiv from './social/TweetsDiv.js';
 import './social.css';
-import { getTwits, getTrending } from '../utils/api-utils.js';
+
+import { getTwits } from '../utils/api-utils.js';
 import LeftSidebar from './LeftSideBar/LeftSidebar.js';
 // import hardTweets from './hard-coded-tweets.js'
+
 //import TrendingDiv from './trending/TrendingDiv.js';
 
 
@@ -30,9 +32,6 @@ export default class Dashboard extends Component {
 
         const staticTweets = await getTwits(this.state.ticker)
         this.setState({ tweets: staticTweets.messages })
-
-        const trending = await getTrending();
-        this.setState({ trending })
 
     }
 
@@ -81,6 +80,7 @@ export default class Dashboard extends Component {
                 // name={this.props.trending}
                 /> */}
                 </div>
+
 
                 <div className='tweet-div'>
                     <h2>Live Feed</h2>
