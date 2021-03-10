@@ -13,6 +13,7 @@ export async function fillUserNameAndDate(username, token) {
     const date = new Date();
     const date_created = date.getTime();
     const response = await request.put(`${BACK_END_URL}/api/updateuser`).send({username, date_created}).set('Authorization', token);
+
     return response.body
 }
 
@@ -25,7 +26,7 @@ export async function loginUser(email, password) {
 
 // PORTFOLIO UTILS
 export async function getUserPortfolio(token) {
-    const response = await request.get(`${BACK_END_URL}/api/portfolio`).set('Authorization', token)
+    const response = request.get(`${BACK_END_URL}/api/portfolio`).set('Authorization', token)
 
     return response.body;
 }
@@ -44,46 +45,46 @@ export async function addToPortfolio(token, symbol, title, quantity, current_pri
 
 //WATCH LIST UTILS
 export async function getUserWatchList(token) {
-    const response = await request.get(`${BACK_END_URL}/api/watchlist`).set('Authorization', token);
+    const response = request.get(`${BACK_END_URL}/api/watchlist`).set('Authorization', token);
 
     return response.body;
 }
 export async function addToWatchList(token, symbol, title) {
-    const response = await request.post(`${BACK_END_URL}/api/watchlist`).set('Authorization', token).send({
+    const response = request.post(`${BACK_END_URL}/api/watchlist`).set('Authorization', token).send({
         symbol, title
     });
 
     return response.body;
 }
 export async function deleteFromWatchList(token, id) {
-    const response = await request.delete(`${BACK_END_URL}/api/watchlist/${id}`).set('Authorization', token);
+    const response = request.delete(`${BACK_END_URL}/api/watchlist/${id}`).set('Authorization', token);
 
     return response.body;
 }
 
 //local storage functions
-export function addUserToLocalStorage(token) {
+export async function addUserToLocalStorage(token) {
     localStorage.setItem(TOKEN, token)
 }
 
-export function getUserFromLocalStorage() {
+export async function getUserFromLocalStorage() {
     return localStorage.getItem(TOKEN)
 }
 
 
-export function removeUserFromLocalStorage() {
+export async function removeUserFromLocalStorage() {
     localStorage.removeItem(TOKEN)
 }
 
 //user notes functions
 export async function getUserNotes(token) {
-    const response = await request.get(`${BACK_END_URL}/auth/notes`).set('Authorization', token);
+    const response = await request.get(`${BACK_END_URL}/api/notes`).set('Authorization', token);
 
     return response.body;
 }
 
-export async function createNote(token, newNote) {
-    const response = await (await request.post(`${BACK_END_URL}/auth/notes`)).set('Authorization', token).send(newNote);
+export async function createNote(token, text) {
+    const response = await (await request.post(`${BACK_END_URL}/api/notes`)).set('Authorization', token).send({ text });
 
     return response.body;
 }
