@@ -52,13 +52,7 @@ export default class Dashboard extends Component {
                 />
 
                 <div>
-                    <StockGraph
-
-                        
-                        ticker={this.state.ticker}
-
-
-                    />
+                    <StockGraph ticker={this.state.ticker}/>
 
                     <NoteDisplay
                         notes section

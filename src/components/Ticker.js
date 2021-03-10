@@ -17,11 +17,11 @@ export default class Ticker extends Component {
         return (
             <>
                 {
-                    this.state.trending.map(trendingItem => {
-                        return <li className='ticker-item'><span>{trendingItem.symbol}</span><br /><span>{trendingItem.title}</span>
-                            {/* <span>{getCurrentStockPrice(trendingItem.symbol)}</span> */}
-                        </li>
-                    })
+                   this.state.trending.map(trendingItem => {
+                    return <li key={trendingItem.symbol} className='ticker-item'><span className='sym'>{trendingItem.symbol}</span><br/><span>{trendingItem.title}</span>
+                   
+                    </li>
+                }) 
                 }
             </>
         )
