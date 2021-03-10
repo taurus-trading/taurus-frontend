@@ -5,7 +5,7 @@ export default class NotesItem extends Component {
         return (
             <div className="notes-section">
                 <form onSubmit={this.handleSubmit}>
-                    <input value={this.props.noteInput} type="textarea" onchange={this.props.handleInputChange} />
+                    <input value={this.props.noteInput} type="textarea" onChange={this.props.handleInputChange} />
                     <button>Add Note</button>
                 </form>
             </div>

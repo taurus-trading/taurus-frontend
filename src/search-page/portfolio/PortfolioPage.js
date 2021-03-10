@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import DataTable from 'react-data-table-component';
+import stocks from './hard-coded-portfolio.js';
 
 const data = [{ user_id: 1, transaction_id: 5, ticker: 'GME', date_purchased: '2021-03-09', quantity: 10, purchase_price: 250, cost_basis: 2500, market_value: 265, unrealized_gain_loss: 150, realized_gain_loss: 0 },{ user_id: 1, transaction_id: 5, ticker: 'GME', date_purchased: '2021-03-09', quantity: 10, purchase_price: 250, cost_basis: 2500, market_value: 265, unrealized_gain_loss: 150, realized_gain_loss: 0 },{ user_id: 1, transaction_id: 5, ticker: 'GME', date_purchased: '2021-03-09', quantity: 10, purchase_price: 250, cost_basis: 2500, market_value: 265, unrealized_gain_loss: 150, realized_gain_loss: 0 } ];
 
-const newData = data.map(item => {
+const newData = stocks.map(item => {
     
     return {
         user_id: item.user_id,
@@ -13,15 +14,14 @@ const newData = data.map(item => {
         quantity: item.quantity,
         purchase_price: item.purchase_price,
         cost_basis: item.quantity * item.purchase_price,
-        market_value: item.market_value,
-        unrealized_gain_loss: item.market_value * item.quantity - item.cost_basis,
+        current_price: item.current_price,
+        unrealized_gain_loss: (item.current_price * item.quantity) - (item.quantity * item.purchase_price),
         realized_gain_loss: item.realized_gain_loss,
     }
 
    
 })
 
-console.log(newData);
 
 const columns = [
   {
@@ -66,8 +66,8 @@ const columns = [
     right: true,
   },
   {
-    name: 'Market Value',
-    selector: 'market_value',
+    name: 'Current Price',
+    selector: 'current_price',
     sortable: true,
     right: true,
   },
@@ -89,6 +89,7 @@ const columns = [
 
 export default class PortfolioPage extends Component {
     render() {
+        console.log(newData)
         return (
             <div>
                 <DataTable
