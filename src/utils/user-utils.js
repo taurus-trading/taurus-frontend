@@ -13,6 +13,7 @@ export async function fillUserNameAndDate(username, token) {
     const date = new Date();
     const date_created = date.getTime();
     const response = await request.put(`${BACK_END_URL}/api/updateuser`).send({username, date_created}).set('Authorization', token);
+
     return response.body
 }
 
@@ -34,7 +35,7 @@ export async function addToPortfolio(token, symbol, title, quantity, current_pri
     const d = new Date();
     const date_purchased = d.getTime();
     const cost = quantity * current_price;
-    const response = request.post(`${BACK_END_URL}/api/portfolio`).set('Authorization', token).send({
+    const response = await request.post(`${BACK_END_URL}/api/portfolio`).set('Authorization', token).send({
         symbol, title, quantity, date_purchased, cost, current_price
     })
 
@@ -73,4 +74,17 @@ export function getUserFromLocalStorage() {
 
 export function removeUserFromLocalStorage() {
     localStorage.removeItem(TOKEN)
+}
+
+//user notes functions
+export async function getUserNotes(token) {
+    const response = await request.get(`${BACK_END_URL}/api/notes`).set('Authorization', token);
+
+    return response.body;
+}
+
+export async function createNote(token, text) {
+    const response = await (await request.post(`${BACK_END_URL}/api/notes`)).set('Authorization', token).send({ text });
+
+    return response.body;
 }
