@@ -67,11 +67,6 @@ export default class StockGraph extends Component {
             return {name: interval.toString(), price:dataPoint}
         });
 
-    const data = [
-        {name: 'Open', uv: 200, pv: 200, amt: 2400},
-        {name: 'time interval', uv:600, pv: 200, amt: 1200},
-        {name: '', uv:20, pv:20, amt: 10},
-        {},];
 
  const renderLineChart = (
   <LineChart width={600} height={600} data={realData}>
