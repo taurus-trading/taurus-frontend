@@ -1,19 +1,40 @@
 .trending-li {
     display: flex;
+    width: 100vw;
     margin: 5px;
 }
 p {
     margin: 5px;
 }
-
+/* 
 .trending-list {
     display: flex;
-    justify-content: center;
-    height: 500px;
-    overflow-y: scroll;
-}
-.new-user-wrapper {
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 300px;
+    /* overflow-y: scroll; */
+   
+/* } */ 
+.trending-list{
     display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    border: 5px solid salmon;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: 3px;
+    margin: 3px 0;
+    /* overflow-y: scroll; */
+    width: 100vw;
+}
+
+.trending-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 300px;
+    height: 80px;
+    box-shadow: 1px 1px 3px grey;
 }
 
 .advice-articles {
@@ -28,4 +49,13 @@ p {
 .article-image {
     width: 580px;
     margin-bottom: 25px;
+
+}
+
+.title {
+    font-size: 12px;
+}
+
+.advice {
+    background-color: aqua;
 }

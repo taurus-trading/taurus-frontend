@@ -33,7 +33,7 @@ export default class NewUserPage extends Component {
                     handleSubmit={this.handleSubmit}
                     />
                 </div>
-                <div>
+                <div className='advice'>
                     <StockAdvice />
                 </div>
             </div>
