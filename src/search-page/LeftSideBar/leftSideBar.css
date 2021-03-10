@@ -1,0 +1,7 @@
+.leftSideBarCont {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+.border {
+    border: 1px solid black
+}
