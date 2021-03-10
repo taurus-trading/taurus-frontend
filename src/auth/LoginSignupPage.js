@@ -13,14 +13,18 @@ export default class LoginSignupPage extends Component {
     
     render() {
         return (
-            <div>
-                <BackgroundImage />
+            
+            <div className='page-wrapper'>
                 <div className="user-form">
                     <LoginWithRouter 
                     handleUserChange={this.props.handleUserChange} />
                     <SignupWithRouter handleUserChange={this.props.handleUserChange} />
                 </div>
+                <div className='video-div'>
+                <BackgroundImage />
+                </div>
             </div>
+             
         )
     }
 }
