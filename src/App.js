@@ -43,7 +43,7 @@ export default class App extends Component {
                             exact
                             render={(routerProps) => <Dashboard 
                               {...routerProps} 
-                              // user={this.state.user} 
+                              token={this.state.token}
                               />} 
                         />
                         <Route 

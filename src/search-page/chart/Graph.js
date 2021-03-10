@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip} from 'recharts';
+import DatePicker from 'react-datepicker';
+import "react-datepicker/dist/react-datepicker.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {getStockPriceHistory} from '../../utils/api-utils.js'
+import {createConvertStartOfDay, getCurrentTimeMilli} from '../../utils/date-utils.js'
 
 
 
@@ -8,30 +13,57 @@ export default class StockGraph extends Component {
     state ={
         ticker: 'GME',
         dataPoints: [],
-        dateFrom: '',
-        dateTo: '',
+        startDate: '',
+        endDate: '',
+        currentTimeMilli: '',
+        priceInterval: 'D',
     }
 
 
     componentDidMount = async () => {
-       //1605629727
-        const data =  await getStockPriceHistory(this.state.ticker, 'D' , 1615332733
-        , 1580544000
-        );
+        //by default graph is displayed from start of today's date
+        await this.setState({startDate: createConvertStartOfDay()});
+       //by default graph is displayed up until the current time
+        await this.setState({currentTimeMilli: getCurrentTimeMilli()})
+        const data =  await getStockPriceHistory(this.state.ticker, 
+            this.state.priceInterval, 
+            this.state.currentTimeMilli, 
+            this.state.startDate);
+
         this.setState({dataPoints: data.c})
     }
     
-    updateDateRange = async (e) => {
+ 
 
-    }
+     handleChange = (date) => {
+    this.setState({
+      startDate: (date.getTime() / 1000)
+    })
+
+    console.log(date);
+  }
+
+  onFormSubmit = async (e) => {
+    e.preventDefault();
+   
+    console.log(e);
+    console.log(this.state.startDate)
+    await this.setState({currentTimeMilli: getCurrentTimeMilli()})
+        const data =  await getStockPriceHistory(this.state.ticker, 
+            this.state.priceInterval, 
+            this.state.currentTimeMilli, 
+            this.state.startDate);
+
+        this.setState({dataPoints: data.c})
+
+    // this.setState({startDate: set})
+}
 
     render() {
-        
-      
 
         let interval = 0;
         const realData = this.state.dataPoints.map(dataPoint => {
-            console.log(dataPoint);
+           
             // eslint-disable-next-line no-unused-expressions
             interval === 60 ? interval = 0 : interval += 15; 
             
@@ -57,6 +89,34 @@ export default class StockGraph extends Component {
             <div>
                 Graph of {this.state.ticker}
                 {renderLineChart}
+
+                <form onSubmit={ this.onFormSubmit }>
+                    <div className="form-group">
+                    <DatePicker
+                        selected={ this.state.startDate }
+                        onChange={ this.handleChange }
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                        timeIntervals={20}
+                        timeCaption="time"
+                        dateFormat="MMMM d, yyyy h:mm aa"
+                    />
+                    <button className="btn btn-primary">Show Date</button>
+                    </div>
+                </form>
+
+
+                {/* <form onSubmit={ this.onFormSubmit }>
+                    <div className="form-group">
+                        <DatePicker
+                            selected={ this.state.startDate }
+                            onChange={ this.handleEndDateChange }
+                            name="startDate"
+                            dateFormat="MM/dd/yyyy"
+                        />
+                        <button className="btn btn-primary">Show Date</button>
+                    </div>
+                </form> */}
             </div>
         )
     }
