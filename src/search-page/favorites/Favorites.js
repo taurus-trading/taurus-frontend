@@ -26,6 +26,7 @@ export default class Favorites extends Component {
         })
     }
     render() {
+        console.log(this.state)
         return (
             <div className="favoritesSection border">
                 <>

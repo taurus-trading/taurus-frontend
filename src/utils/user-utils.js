@@ -63,16 +63,16 @@ export async function deleteFromWatchList(token, id) {
 }
 
 //local storage functions
-export async function addUserToLocalStorage(token) {
+export function addUserToLocalStorage(token) {
     localStorage.setItem(TOKEN, token)
 }
 
-export async function getUserFromLocalStorage() {
+export function getUserFromLocalStorage() {
     return localStorage.getItem(TOKEN)
 }
 
 
-export async function removeUserFromLocalStorage() {
+export function removeUserFromLocalStorage() {
     localStorage.removeItem(TOKEN)
 }
 
