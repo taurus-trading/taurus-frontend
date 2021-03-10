@@ -11,14 +11,14 @@ import {createConvertStartOfDay, getCurrentTimeMilli} from '../../utils/date-uti
 
 export default class StockGraph extends Component {
     state ={
-        ticker: 'GME',
+        ticker: this.props.ticker,
         dataPoints: [],
         startDate: '',
         endDate: '',
         currentTimeMilli: '',
         priceInterval: 'D',
     }
-
+    
 
     componentDidMount = async () => {
         //by default graph is displayed from start of today's date
@@ -29,19 +29,13 @@ export default class StockGraph extends Component {
             this.state.priceInterval, 
             this.state.currentTimeMilli, 
             this.state.startDate);
-
         this.setState({dataPoints: data.c})
     }
     
- 
-
-     handleChange = (date) => {
-    this.setState({
-      startDate: (date.getTime() / 1000)
-    })
-
-    console.log(date);
-  }
+    handleChange = (date) => {
+        this.setState({startDate: (date.getTime() / 1000)});
+        console.log(date);
+    }
 
   onFormSubmit = async (e) => {
     e.preventDefault();
@@ -49,6 +43,8 @@ export default class StockGraph extends Component {
     console.log(e);
     console.log(this.state.startDate)
     await this.setState({currentTimeMilli: getCurrentTimeMilli()})
+
+    console.log(this.state.ticker);
         const data =  await getStockPriceHistory(this.state.ticker, 
             this.state.priceInterval, 
             this.state.currentTimeMilli, 
@@ -60,6 +56,7 @@ export default class StockGraph extends Component {
 }
 
     render() {
+       
 
         let interval = 0;
         const realData = this.state.dataPoints.map(dataPoint => {
@@ -87,7 +84,7 @@ export default class StockGraph extends Component {
         
         return (
             <div>
-                Graph of {this.state.ticker}
+                Graph of {this.props.ticker}
                 {renderLineChart}
 
                 <form onSubmit={ this.onFormSubmit }>
