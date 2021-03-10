@@ -35,33 +35,22 @@ export default class StockGraph extends Component {
         this.setState({startDate: (date.getTime() / 1000)});
     }
 
-  onFormSubmit = async (e) => {
-    e.preventDefault();
-
-    this.setState({currentTimeMilli: getCurrentTimeMilli()});
-
-    console.log(generateInterval(this.state.startDate, this.state.currentTimeMilli));
-
-    // console.log((this.state.currentTimeMilli - this.state.startDate) * 1000);
-
-     const interval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
-
-     await this.setState({priceInterval: interval})
-
-    console.log(this.state.priceInterval);
-
-    const data =  await getStockPriceHistory(this.state.ticker, 
-        this.state.priceInterval, 
-        this.state.currentTimeMilli, 
-        this.state.startDate);
-
-    this.setState({dataPoints: data.c})
+    onFormSubmit = async (e) => {
+        e.preventDefault();
+        this.setState({currentTimeMilli: getCurrentTimeMilli()});
+        const interval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
+        await this.setState({priceInterval: interval})
+        const data =  await getStockPriceHistory(this.state.ticker, 
+            this.state.priceInterval, 
+            this.state.currentTimeMilli, 
+            this.state.startDate);
+        this.setState({dataPoints: data.c})
     }
     render() {
         let interval = 0;
         const realData = this.state.dataPoints.map(dataPoint => {
             // eslint-disable-next-line no-unused-expressions
-            interval === 60 ? interval = 0 : interval += 15; 
+            this.state.interval === 60 ? interval = 0 : interval += 15; 
             return {name: interval.toString(), price:dataPoint}
         });
         const renderLineChart = (
