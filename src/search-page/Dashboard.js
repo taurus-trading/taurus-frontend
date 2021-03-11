@@ -8,6 +8,7 @@ import { getTwits } from '../utils/api-utils.js';
 import LeftSidebar from './LeftSideBar/LeftSidebar.js';
 import { getUserNotes } from '../utils/user-utils.js';
 import PortfolioModule from '../portfolio/PortfolioModule';
+import Footer from '../components/Footer';
 // import hardTweets from './hard-coded-tweets.js'
 //import TrendingDiv from './trending/TrendingDiv.js';
 
@@ -22,6 +23,7 @@ export default class Dashboard extends Component {
         trending: [],
         timer: null,
         notes: [],
+        loading: false,
         error: '',
     }
 
@@ -34,8 +36,7 @@ export default class Dashboard extends Component {
         //     const tweetStream = await getTwits(this.state.ticker)
 
         //     this.setState({tweets: tweetStream.messages})
-        // }, 10000)});
-
+        // }, 10000)})
 
         const userNotes = await getUserNotes(this.props.token);
         this.setState({ userNotes: userNotes });
@@ -74,30 +75,31 @@ export default class Dashboard extends Component {
                     handleStockSelect={this.handleStockSelect}
                 />
 
-                <div>
+                <div className='graph-section'>
                     <StockGraph ticker={this.state.ticker} />
                     <div>
-                        <PortfolioModule 
+                        <PortfolioModule
                             token={this.props.token}
-                            ticker={this.state.ticker}/>
+                            ticker={this.state.ticker} />
                         <NoteDisplay
-                            token={this.props.token}/>
+                            token={this.props.token} />
                     </div>
-
-
                 </div>
-
                 <div className='tweet-div'>
                     <h2>Live Feed</h2>
                     {
                         this.state.error && <h3 style={{ color: 'red' }}>{this.state.error}</h3>
                     }
+                    <div className="tweets">
                     <TweetsDiv
                         tweets={this.state.tweets}
                         symbol={this.state.ticker}
                     />
-                </div>
+                    </div>
 
+
+                </div>
+                <Footer></Footer>
             </div>
         )
     }
