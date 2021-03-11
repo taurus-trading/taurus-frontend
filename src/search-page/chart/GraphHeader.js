@@ -22,9 +22,11 @@ export default class GraphHeader extends Component {
     render() {
         console.log(this.state.cost);
         return (
-            <div>
+            <div className='graph-headedr-div'>
                 <h1>Graph for {this.props.ticker}</h1>
-                <h3>Current price <span className='new-cost'>${this.state.cost}</span></h3> 
+                <h3>Current price <span 
+                className='new-cost'
+                >${this.state.cost}</span></h3> 
             </div>
         )
     }

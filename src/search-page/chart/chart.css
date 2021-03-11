@@ -1,12 +1,33 @@
 .recharts-wrapper{
+    position: center;
+    color: black;
    
+    padding: 0;
+    margin: 10px;
     width: 100%;
+    
 }
-.recharts-wrapper{
- 
-    background-color: rgba(0,0,0,.8);
-  }
+   
+.recharts-surface{
+    width:100%;
+}
+.new-cost{
+    color: green;
+}
 
-  .new-cost{
-      color: green;
-  }
+.date-picker-div{
+    text-align: center;
+    margin: 5px auto;
+}
+.graph-section{
+    display: flex;
+    flex-direction: column;
+    
+    width: 80%;
+    max-width: 900px;
+}
+.graph-div{
+    padding: 10px;
+    max-width: 900px;
+    box-shadow: 5px 10px;
+}
