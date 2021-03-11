@@ -6,6 +6,7 @@ import './leftSideBar.css';
 export default class LeftSidebar extends Component {
     state = {
         favoritesCount: 0
+        
     }
     increaseFavoritesCount = () => {
         this.setState({

@@ -1,5 +1,17 @@
+.leftSideBarCont{
+    min-width: 250px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
 .searchForm label{
     font-weight: bold;
+
+    max-width:150px;
+
+}
+.searchForm input{
+    width: 80%;
 }
 .searchItem {
     display: flex;
@@ -11,8 +23,14 @@
     background-color: var(--cream);
     cursor: pointer;
 }
+.MuiButtonBase-root{
+    display: inline;
+    box-sizing: border-box;
+    width: 5%;
+}
 .searchSymbol {
     font-weight: bold;
+    display: inline;
 }
 .searchTitle {
     font-size: 10px;

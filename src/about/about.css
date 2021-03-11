@@ -1,0 +1,40 @@
+.bio-page {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: auto;
+    height: auto;
+}
+
+.bio-items {
+    margin-top: 100px;
+    width: 350px;
+    height: 300px;
+    padding: 10px;
+    height: min-content;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 2px grey;
+    color: white;
+    background-color: #483D8B;
+}
+
+.bio-image img{
+    display: flex;
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+    margin-left: 60px;
+}
+
+.media-links img {
+    width: 30px;
+    height: 30px;
+    float: right;
+    margin: 2px;
+}
+
+.paragraph {
+    margin: 30px;
+    line-height: 2em;
+}

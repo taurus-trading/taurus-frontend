@@ -7,6 +7,7 @@ import './social.css';
 import { getTwits} from '../utils/api-utils.js';
 import LeftSidebar from './LeftSideBar/LeftSidebar.js';
 import { getUserNotes } from '../utils/user-utils.js';
+import Footer from '../components/Footer';
 // import hardTweets from './hard-coded-tweets.js'
 //import TrendingDiv from './trending/TrendingDiv.js';
 
@@ -21,6 +22,7 @@ export default class Dashboard extends Component {
         trending: [],
         timer: null,
         notes: [], 
+        loading: false,
         error: '',
     }
 
@@ -30,7 +32,7 @@ export default class Dashboard extends Component {
 
         //     this.setState({tweets: tweetStream.messages})
         // }, 10000)})
-
+        
         const staticTweets = await getTwits(this.state.ticker)
         this.setState({ tweets: staticTweets.messages })
 
@@ -71,7 +73,7 @@ export default class Dashboard extends Component {
                     handleStockSelect = {this.handleStockSelect}
                 />
 
-                <div>
+                <div className='graph-section'>
                     <StockGraph ticker={this.state.ticker}/>
 
                     <NoteDisplay 
@@ -79,18 +81,19 @@ export default class Dashboard extends Component {
                     />
 
                 </div>
-
                 <div className='tweet-div'>
-                    <h2>Live Feed</h2>
-                    {
-                    this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
-                     }
-                    <TweetsDiv
-                        tweets={this.state.tweets}
-                        symbol={this.state.ticker}
-                    />
+                        {
+                        this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
+                         }
+                        <h2>Live Feed</h2>
+                    <div className='tweets'>
+                        <TweetsDiv
+                            tweets={this.state.tweets}
+                            symbol={this.state.ticker}
+                            />
+                    </div>
                 </div>
-
+                <Footer></Footer>
             </div>
         )
     }
