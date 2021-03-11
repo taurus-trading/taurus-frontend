@@ -7,7 +7,8 @@ class Signup extends Component {
     state = {
         email: '',
         password: '',
-        username: ''
+        username: '',
+        error: '',
     }
 
     handleEmail = (e) => {
@@ -25,16 +26,25 @@ class Signup extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const token = await signUpUser(this.state.email, this.state.password);
+        try {
+            const token = await signUpUser(this.state.email, this.state.password);
+            await fillUserNameAndDate(this.state.username, token);
+            this.props.handleUserChange(token);
+            this.props.history.push('/newuser');
 
-        await fillUserNameAndDate(this.state.username, token);
+        }
+        catch(e){
+            this.setState({error: e.response.body.error})
+        }
+
         
-        this.props.handleUserChange(token);
-        this.props.history.push('/newuser');
     }
     render() {
         return (
             <div>
+                {
+                this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
+                }
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Email: 
