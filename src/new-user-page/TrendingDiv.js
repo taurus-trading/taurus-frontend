@@ -10,7 +10,7 @@ export default class TrendingDiv extends Component {
                 symbol= {trendingItem.symbol}
                 title= {trendingItem.title}
                 value= {trendingItem.symbol}
-                handleSubmit = {this.props.handleSubmit} 
+                onClick = {this.props.onClick} 
                 />
 
             )
