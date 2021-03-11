@@ -51,25 +51,27 @@ export default class StockGraph extends Component {
 
     onFormSubmit = async (e) => {
         e.preventDefault();
+
         this.setState({currentTimeMilli: getCurrentTimeMilli()});
+        
         const interval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
+        
         await this.setState({priceInterval: interval})
         const data =  await getStockPriceHistory(this.state.ticker, 
             this.state.priceInterval, 
             this.state.currentTimeMilli, 
             this.state.startDate);
-        this.setState({dataPoints: data.c})
+        
+            this.setState({dataPoints: data.c})
     }
     render() {
-        let interval = 0;
-        const realData = this.state.dataPoints.map(dataPoint => {
-            // eslint-disable-next-line no-unused-expressions
-            this.state.interval === 60 ? interval = 0 : interval += 15; 
-            return {name: interval.toString(), price:dataPoint}
+        const data = this.state.dataPoints.map(dataPoint => {
+            return { price:dataPoint}
         });
+
         const renderLineChart = (
-        <LineChart width={800} height={600} data={realData}>
-            <Line type="monotone" dataKey="price" stroke="#D5D984" />
+        <LineChart width={650} height={600} data={data}>
+            <Line type="monotone" dataKey="price" stroke="#000" />
             <CartesianGrid stroke="#000" />
             <XAxis />
             <YAxis />
@@ -78,24 +80,28 @@ export default class StockGraph extends Component {
 
  
         return (
-            <div>
-                <GraphHeader ticker={this.props.ticker}></GraphHeader>
-                {renderLineChart}
-                <form onSubmit={ this.onFormSubmit }>
-                    <div className="form-group">
-                    <DatePicker
-                        selected={this.state.startDate * 1000}
-                        onChange={ this.handleChange }
-                        // showTimeSelect
-                        // timeFormat="HH:mm"
-                        // timeIntervals={20}
-                        // timeCaption="time"
-                        dateFormat="MMMM d, yyyy"
-                    />
-                    <button className="btn btn-primary">Show Date</button>
-                    </div>
-                </form>
-            </div>
+            <>
+                <div className='graph-div'>
+                    <GraphHeader ticker={this.props.ticker}></GraphHeader>
+                    {renderLineChart}
+                </div>
+
+                <div className='date-picker-div'>
+                    <form onSubmit={ this.onFormSubmit }>
+                        <div className="form-group">
+                        <DatePicker
+                            selected={this.state.startDate * 1000}
+                            onChange={ this.handleChange }
+                            dateFormat="MMMM d, yyyy"
+                            />
+                        <button className="btn btn-primary">Update Graph</button>
+                        </div>
+                    </form>
+                </div>
+                <div>
+
+                </div>
+            </>
         )
     }
 }

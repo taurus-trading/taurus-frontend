@@ -38,6 +38,7 @@ export default class NewUserPage extends Component {
         console.log(this.state)
         return (
             <>
+                
                 <p className={`${this.state.onScreen}-what what`}>
                     Please click on a stock to add it to your watchlist. <br/>
                 </p>

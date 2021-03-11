@@ -15,6 +15,8 @@ p {
     /* overflow-y: scroll; */
    
 /* } */ 
+
+
 .trending-list{
     padding-top: 60px;
     /* box-sizing: border-box; */
@@ -144,7 +146,14 @@ cursor: pointer;
 .false-why {
     animation: slideInWhy normal 2.5s forwards;
 }
-
+.checked{
+    color:green;
+    font-size: 1.3rem;
+    background-color: black;
+}
+.unChecked{
+    color: black;
+}
 
 
 
