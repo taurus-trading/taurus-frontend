@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
 import { addToWatchList } from '../../utils/user-utils.js'
+import  { IconButton }  from '@material-ui/core';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+
+
 
 export default class SearchItem extends Component {
 
@@ -8,11 +12,20 @@ export default class SearchItem extends Component {
         this.props.increaseFavoritesCount();
     }
     render() {
+        const iconStyle = {
+            color: 'blue',
+            height: 40,
+            width: 40,
+
+        }
         return (
-            <div onClick={() => {this.props.handleStockSelect(this.props.stockInfo.symbol)}}>
-                <p>{this.props.stockInfo.symbol}</p>
-                <p>{this.props.stockInfo.description}</p>
-                <button onClick={this.handleAddToFavs}>Add to Watch List</button>
+            <div 
+            className="searchItem">
+                <div onClick={() => {this.props.handleStockSelect(this.props.stockInfo.symbol)}}>
+                    <p className='searchSymbol'>{this.props.stockInfo.symbol}</p>
+                    <p className='searchTitle'>{this.props.stockInfo.description}</p>
+                </div>
+                <IconButton style={iconStyle} onClick={this.handleAddToFavs}><AddCircleOutlineIcon/></IconButton>
             </div>
         )
     }

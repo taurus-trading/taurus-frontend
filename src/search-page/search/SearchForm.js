@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import SearchIcon from '@material-ui/icons/Search';
+import  { IconButton }  from '@material-ui/core';
+
 
 export default class SearchForm extends Component {
     state = {
@@ -17,13 +20,13 @@ export default class SearchForm extends Component {
     render() {
 
         return (
-            <div>
+            <div className="searchForm">
                 <form onSubmit={this.submitHandler}>
                     <label>
                         Search for a ticker: 
                         <input type="text" value={this.state.query} onChange={this.handleInputChange}/>
                     </label>
-                    <button >Search</button>
+                    <IconButton color="primary"> <SearchIcon/> </IconButton>
                 </form>
             </div>
         )
