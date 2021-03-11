@@ -4,9 +4,10 @@ import StockGraph from './chart/Graph.js';
 import NoteDisplay from './details/NotesDisplay.js';
 import TweetsDiv from './social/TweetsDiv.js';
 import './social.css';
-import { getTwits} from '../utils/api-utils.js';
+import { getTwits } from '../utils/api-utils.js';
 import LeftSidebar from './LeftSideBar/LeftSidebar.js';
 import { getUserNotes } from '../utils/user-utils.js';
+import PortfolioModule from '../portfolio/PortfolioModule';
 import Footer from '../components/Footer';
 // import hardTweets from './hard-coded-tweets.js'
 //import TrendingDiv from './trending/TrendingDiv.js';
@@ -21,20 +22,21 @@ export default class Dashboard extends Component {
         tweets: [],
         trending: [],
         timer: null,
-        notes: [], 
+        notes: [],
         loading: false,
         error: '',
     }
 
     componentDidMount = async () => {
+
+        const staticTweets = await getTwits(this.state.ticker)
+        this.setState({ tweets: staticTweets.messages })
+
         // this.setState({timer: setInterval(async() => {
         //     const tweetStream = await getTwits(this.state.ticker)
 
         //     this.setState({tweets: tweetStream.messages})
         // }, 10000)})
-        
-        const staticTweets = await getTwits(this.state.ticker)
-        this.setState({ tweets: staticTweets.messages })
 
         const userNotes = await getUserNotes(this.props.token);
         this.setState({ userNotes: userNotes });
@@ -55,12 +57,12 @@ export default class Dashboard extends Component {
             })
             console.log(`this is ticker in dashboard ${this.state.ticker}`);
         }
-        catch(e){
+        catch (e) {
             this.setState({
                 error: e.response.body.error,
                 tweets: [],
             })
-            
+
         }
 
     }
@@ -68,30 +70,34 @@ export default class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <LeftSidebar 
+                <LeftSidebar
                     token={this.props.token}
-                    handleStockSelect = {this.handleStockSelect}
+                    handleStockSelect={this.handleStockSelect}
                 />
 
                 <div className='graph-section'>
-                    <StockGraph ticker={this.state.ticker}/>
-
-                    <NoteDisplay 
-                        token={this.props.token}
-                    />
-
+                    <StockGraph ticker={this.state.ticker} />
+                    <div>
+                        <PortfolioModule
+                            token={this.props.token}
+                            ticker={this.state.ticker} />
+                        <NoteDisplay
+                            token={this.props.token} />
+                    </div>
                 </div>
                 <div className='tweet-div'>
-                        {
-                        this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
-                         }
-                        <h2>Live Feed</h2>
-                    <div className='tweets'>
-                        <TweetsDiv
-                            tweets={this.state.tweets}
-                            symbol={this.state.ticker}
-                            />
+                    <h2>Live Feed</h2>
+                    {
+                        this.state.error && <h3 style={{ color: 'red' }}>{this.state.error}</h3>
+                    }
+                    <div className="tweets">
+                    <TweetsDiv
+                        tweets={this.state.tweets}
+                        symbol={this.state.ticker}
+                    />
                     </div>
+
+
                 </div>
                 <Footer></Footer>
             </div>

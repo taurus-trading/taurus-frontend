@@ -2,22 +2,11 @@ import React, { Component } from 'react'
 import DataTable from 'react-data-table-component';
 // import FavoriteItem from '../search-page/favorites/FavoritesItem.js';
 // import stocks from './hard-coded-portfolio.js';
-import { addToPortfolio, getUserPortfolio, getUserWatchList, deleteFromPortfolio } from '../utils/user-utils';
+import { addToPortfolio, getUserPortfolio, deleteFromPortfolio } from '../utils/user-utils';
 import { getCurrentStockPrice } from '../utils/api-utils'
 import './portfolio.css';
 
 const columns = [
-  {
-    name: 'User ID',
-    selector: 'user_id',
-    sortable: true,
-  },
-  {
-    name: 'Transaction ID',
-    selector: 'transaction_id',
-    sortable: true,
-    right: true,
-  },
   {
     name: 'Ticker',
     selector: 'ticker',
@@ -55,18 +44,11 @@ const columns = [
     right: true,
   },
   {
-    name: 'Unrealized Gain / (Loss)',
-    selector: 'unrealized_gain_loss',
+    name: 'Gain / (Loss)',
+    selector: 'gain_loss',
     sortable: true,
     right: true,
   },
-  {
-    name: 'Realized Gain / (Loss)',
-    selector: 'realized_gain_loss',
-    sortable: true,
-    right: true,
-  },
-
 ];
 let selectedRowsArray = [];
 const handleChange = (state) => {
@@ -85,23 +67,16 @@ export default class PortfolioPage extends Component {
         currentPrice: [],
         ticker:'QQQ',
         selectedRows: [],
-
+        totalGain: 0
     }
 
     componentDidMount = async () => {
-
-        await this.renderWatchlist();
         await this.fetchPortfolio();
-        await this.fetchCurrentPrices();
-
     }
 
-    fetchCurrentPrices = async () => {
-        // const priceArray = [];
-        
+    fetchCurrentPrices = async () => {        
         const priceArray = await Promise.all(this.state.portfolio.map(async(stock) => {
           let price = await getCurrentStockPrice(stock.symbol);
-          // priceArray.push(price.c)
           return price.c
         })
         )
@@ -109,18 +84,31 @@ export default class PortfolioPage extends Component {
     
     }
 
-    renderWatchlist = async () => {
-        const watchlist = await getUserWatchList(this.props.token)
-        await this.setState({
-            watchlist
-        })
-    }
-
     fetchPortfolio = async () => {
         const portfolio = await getUserPortfolio(this.props.token)
         await this.setState({
             portfolio
         })
+        await this.fetchCurrentPrices();
+        const gainArr = this.calculateGainArr();
+        const totalGain = this.calculateTotalGains(gainArr);
+        this.setState({
+          totalGain
+        })
+    }
+    
+    calculateGainArr = () => {
+      const gainArr = this.state.portfolio.map((transaction, i) => {
+        const costBasis = transaction.cost * transaction.quantity;
+        const currentEquity = this.state.currentPrice[i] * transaction.quantity;
+        return currentEquity - costBasis;
+      }) 
+      return gainArr;
+    }
+    calculateTotalGains = (gainArr) => {
+      return gainArr.reduce((acc, item) => {
+        return acc + item
+      }, 0)
     }
 
     handleAddToPortfolio = async (symbol, title) => {
@@ -153,21 +141,19 @@ export default class PortfolioPage extends Component {
                         this.state.portfolio.map((item, i) => {
                           const currentPrice = this.state.currentPrice[i]
                             return {
-                                user_id: item.user_id,
                                 transaction_id: item.id,
                                 ticker: item.symbol,
-                                date_purchased: item.date_purchased,
+                                date_purchased: new Date(Number(item.date_purchased)).toString(),
                                 quantity: item.quantity,
-                                purchase_price: item.cost,
-                                cost_basis: item.quantity * item.cost,
-                                current_price: currentPrice,
-                                unrealized_gain_loss: (currentPrice * item.quantity) - (item.quantity * item.cost),
-                                realized_gain_loss: item.realized_gain_loss,
+                                purchase_price: Number(item.cost).toFixed(2),
+                                cost_basis: Number(item.quantity * item.cost).toFixed(2),
+                                current_price: Number(currentPrice).toFixed(2),
+                                gain_loss: Number((currentPrice * item.quantity) - (item.quantity * item.cost)).toFixed(2),
                             }
                         })
                     }
                 />
-                
+                <p className="totalGainDiv">Total Gain/(Loss): ${this.state.totalGain}</p>
                 <button onClick={this.handleDelete}>Delete Rows</button>
 
 
