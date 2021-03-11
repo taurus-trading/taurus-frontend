@@ -165,9 +165,10 @@ export default class PortfolioPage extends Component {
                                 realized_gain_loss: item.realized_gain_loss,
                             }
                         })
+                  
                     }
                 />
-                
+                <p className='total-gain'><span className='gain-span'>Total Gain: {500}</span></p>
                 <button onClick={this.handleDelete}>Delete Rows</button>
 
 

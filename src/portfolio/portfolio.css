@@ -8,3 +8,14 @@
 .add-portfolio {
     width: 160px;
 }
+
+.total-gain {
+    margin-left: auto;
+    /* width: 100vw; */
+    display: flex;
+}
+
+.gain-span {
+    margin-left: auto;
+    /* width: 100vw; */
+}
