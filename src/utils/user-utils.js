@@ -93,3 +93,9 @@ export async function createNote(token, text) {
 
     return response.body;
 }
+
+export async function deleteNote(token, id) {
+    const response = await request.delete(`${BACK_END_URL}/api/notes/${id}`).set('Authorization', token);
+
+    return response.body;
+}

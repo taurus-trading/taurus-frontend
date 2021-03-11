@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import NotesItem from './NotesItem.js';
 import NotesInput from './NotesInput.js';
 import { getUserNotes, createNote } from '../../utils/user-utils';
+import './note.css';
 
 export default class NoteDisplay extends Component {
     state = {
@@ -37,15 +38,15 @@ export default class NoteDisplay extends Component {
     }
 
     render() {
-        //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYxNTQwMTQ1MH0.w22bAzZKgzYIhQ0HlWhJDzX-r8pZ4ZZ1gX8FmRgj0eg
         return (
-            <div>
+            <div className="notes-section">
+                <h3>My Notes</h3>
                 <NotesInput noteInput={this.state.noteInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} />
-                <ul>
+                <div className="notes-div">
                     {
-                    this.state.userNotes.map(note => <NotesItem key={note.text} userEntry={note.text} />)
+                    this.state.userNotes.map(note => <NotesItem setUserNotes={this.setUserNotes} key={note.id} userEntry={note.text} token={this.props.token} userNote={note} />)
                     }
-                </ul>
+                </div>
             </div>
         )
     }
