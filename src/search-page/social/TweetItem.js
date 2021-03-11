@@ -11,7 +11,12 @@ export default class TweetItem extends Component {
                     </div>
 
                         
-                    {/* <p>{this.props.entities.sentiment.basic || ''}</p> */}
+                    {
+                        this.props.sentiment &&
+                        <p>
+                            {this.props.sentiment}
+                        </p>
+                    }
                     
                     <p>{this.props.message}</p>
                     {

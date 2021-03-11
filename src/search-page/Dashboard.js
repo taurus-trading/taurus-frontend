@@ -23,6 +23,7 @@ export default class Dashboard extends Component {
         timer: null,
         notes: [], 
         loading: false,
+        error: '',
     }
 
     componentDidMount = async () => {
@@ -40,16 +41,28 @@ export default class Dashboard extends Component {
 
     }
 
-    componentWillUnmount = () => {
-        clearInterval(this.state.timer);
-    }
+    // componentWillUnmount = () => {
+    //     clearInterval(this.state.timer);
+    // }
     handleStockSelect = async (ticker) => {
-        const staticTweets = await getTwits(ticker)
-        await this.setState({
-            ticker: ticker,
-            tweets: staticTweets.messages
-        })
-        console.log(`this is ticker in dashboard ${this.state.ticker}`);
+
+        try {
+            const staticTweets = await getTwits(ticker)
+            await this.setState({
+                ticker: ticker,
+                tweets: staticTweets.messages,
+                error: '',
+            })
+            console.log(`this is ticker in dashboard ${this.state.ticker}`);
+        }
+        catch(e){
+            this.setState({
+                error: e.response.body.error,
+                tweets: [],
+            })
+            
+        }
+
     }
 
     render() {
@@ -69,6 +82,9 @@ export default class Dashboard extends Component {
 
                 </div>
                 <div className='tweet-div'>
+                        {
+                        this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
+                         }
                         <h2>Live Feed</h2>
                     <div className='tweets'>
                         <TweetsDiv
