@@ -27,7 +27,7 @@ export default class SearchForm extends Component {
                         Search for a ticker: 
                         <input type="text" value={this.state.query} onChange={this.handleInputChange}/>
                     </label>
-                    <IconButton color="primary"> <SearchIcon/> </IconButton>
+                    <IconButton type="submit" color="primary"> <SearchIcon/> </IconButton>
                 </form>
             </div>
         )
