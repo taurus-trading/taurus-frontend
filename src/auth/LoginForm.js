@@ -8,6 +8,8 @@ class LoginForm extends Component {
     state = {
         email: '',
         password: '',
+        error: '',
+        validation: {},
     }
 
     handleEmail = (e) => {
@@ -20,23 +22,39 @@ class LoginForm extends Component {
 
     handleSubmit = async (e) => {
         e.preventDefault();
+        try {
+            const token = await loginUser(this.state.email, this.state.password);
+            this.props.handleUserChange(token);
+            this.props.history.push('/dashboard');
 
-        const token = await loginUser(this.state.email, this.state.password);
+        }
+        catch(e) {
+            this.setState({error: e.response.body.error})
+        }
 
-        this.props.handleUserChange(token);
-        this.props.history.push('/dashboard');
+
     }
     render() {
         return (
             <div>
+                {
+                this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
+                }
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Email: 
-                        <input value={this.state.email} onChange={this.handleEmail}  />
+                        <input 
+                        value={this.state.email} 
+                        onChange={this.handleEmail} 
+                        name='email'  />
                     </label>
                     <label>
                         Password: 
-                        <input value={this.state.password} onChange={this.handlePassword}  />
+                        <input 
+                        value={this.state.password} 
+                        onChange={this.handlePassword} 
+                        name='password' 
+                        type='password' />
                     </label>
 
                     <button>Login</button>
