@@ -38,14 +38,13 @@ export default class NoteDisplay extends Component {
     }
 
     render() {
-        //eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTksImlhdCI6MTYxNTQwMTQ1MH0.w22bAzZKgzYIhQ0HlWhJDzX-r8pZ4ZZ1gX8FmRgj0eg
         return (
             <div className="notes-section">
                 <h3>My Notes</h3>
                 <NotesInput noteInput={this.state.noteInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} />
                 <div className="notes-div">
                     {
-                    this.state.userNotes.map(note => <NotesItem key={note.text} userEntry={note.text} />)
+                    this.state.userNotes.map(note => <NotesItem setUserNotes={this.setUserNotes} key={note.id} userEntry={note.text} token={this.props.token} userNote={note} />)
                     }
                 </div>
             </div>
