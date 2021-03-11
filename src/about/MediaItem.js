@@ -7,10 +7,10 @@ export default class MediaItem extends Component {
         return (
             <div className="media-links">
                 <a href={this.props.linkedin}>
-                    <img src={githubImage} />
+                    <img src={githubImage} alt="github" />
                 </a>
                 <a href={this.props.github}>
-                    <img src={linkedinImage} />
+                    <img src={linkedinImage} alt="linkedin" />
                 </a>
             </div>
         )
