@@ -1,0 +1,51 @@
+.notes-section {
+   width: 500px;
+   height: 320px;
+   float: right;
+   margin: 20px;
+   box-shadow: 1px 1px 3px grey;
+   background-color: whitesmoke;
+}
+
+.notes-div {
+    display: flex;
+    overflow: scroll;
+    height: 250px;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    overflow-wrap: break-word;
+    overflow-x: hidden;
+}
+
+.note-item {
+    width: 100%;
+    border: 1px solid black;
+    box-shadow: 1px 1px 3px 1px grey;
+    background-color: beige;
+    margin: 1px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.delete-button {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.input-div {
+    display: flex;
+}
+
+input-div h3 {
+    justify-content: center;
+}
+
+.input-div button {
+    display: flex;
+    align-items: flex-end;
+    width: 50px;
+    height: 50px;
+    
+}
+
+
