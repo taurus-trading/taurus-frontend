@@ -7,7 +7,9 @@ class Signup extends Component {
     state = {
         email: '',
         password: '',
-        username: ''
+        username: '',
+        error: '',
+        validEmail: true,
     }
 
     handleEmail = (e) => {
@@ -25,16 +27,34 @@ class Signup extends Component {
     handleSubmit = async (e) => {
         e.preventDefault();
 
-        const token = await signUpUser(this.state.email, this.state.password);
+        try {
 
-        await fillUserNameAndDate(this.state.username, token);
+            const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if(!regex.test(this.state.email)){
+                this.setState({validEmail: false})
+            }else {
+                const token = await signUpUser(this.state.email, this.state.password);
+                await fillUserNameAndDate(this.state.username, token);
+                this.props.handleUserChange(token);
+                this.props.history.push('/newuser');
+            }
+
+        }
+        catch(e){
+            this.setState({error: e.response.body.error})
+        }
+
         
-        this.props.handleUserChange(token);
-        this.props.history.push('/newuser');
     }
     render() {
         return (
             <div>
+                {
+                this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
+                }
+                {
+                !this.state.validEmail && <h3 style={{ color: 'red'}}>{'enter valid email'}</h3>
+                }
                 <form onSubmit={this.handleSubmit}>
                     <label>
                         Email: 
