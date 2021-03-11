@@ -29,7 +29,7 @@ export async function getStockPriceHistory(symbol, resolution, toDate, fromDate)
 }
 export async function searchStocks(query) {
     const response = await request.get(`${BACK_END_URL}/search?search=${query}`);
-
+    console.log('function ran')
     return response.body;
 }
 

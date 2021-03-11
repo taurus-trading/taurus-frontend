@@ -9,6 +9,7 @@ class Signup extends Component {
         password: '',
         username: '',
         error: '',
+        validEmail: true,
     }
 
     handleEmail = (e) => {
@@ -27,10 +28,16 @@ class Signup extends Component {
         e.preventDefault();
 
         try {
-            const token = await signUpUser(this.state.email, this.state.password);
-            await fillUserNameAndDate(this.state.username, token);
-            this.props.handleUserChange(token);
-            this.props.history.push('/newuser');
+
+            const regex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+            if(!regex.test(this.state.email)){
+                this.setState({validEmail: false})
+            }else {
+                const token = await signUpUser(this.state.email, this.state.password);
+                await fillUserNameAndDate(this.state.username, token);
+                this.props.handleUserChange(token);
+                this.props.history.push('/newuser');
+            }
 
         }
         catch(e){
@@ -44,6 +51,9 @@ class Signup extends Component {
             <div>
                 {
                 this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
+                }
+                {
+                !this.state.validEmail && <h3 style={{ color: 'red'}}>{'enter valid email'}</h3>
                 }
                 <form onSubmit={this.handleSubmit}>
                     <label>

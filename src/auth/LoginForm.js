@@ -20,20 +20,8 @@ class LoginForm extends Component {
         this.setState({ password: e.target.value });
     }
 
-    formValidation = () => {
-        const {email, password} = this.state;
-        let isValid = true;
-        const validation = {};
-        const emailFormat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-        if(email.value.match(emailFormat)){
-            validation.email = 'Invalid Email';
-            isValid = false;
-
-        }
-    }
     handleSubmit = async (e) => {
         e.preventDefault();
-        const isValid = this.formValidation();
         try {
             const token = await loginUser(this.state.email, this.state.password);
             this.props.handleUserChange(token);

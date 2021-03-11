@@ -14,6 +14,7 @@ export default class SearchForm extends Component {
     }
     submitHandler = (e) => {
         e.preventDefault()
+        alert('ckick')
         this.props.handleSearchSubmit(this.state.query);
 
     }
