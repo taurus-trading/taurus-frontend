@@ -24,7 +24,7 @@ export default class NotesInput extends Component {
                         margin="normal"
                         fullWidth
                     />
-                    <IconButton type="submit" style={iconStyle} onClick={this.handleAddToFavs}><AddCircleOutlineIcon/></IconButton>
+                    <IconButton type="submit" style={iconStyle} onClick={this.props.handleSubmit}><AddCircleOutlineIcon/></IconButton>
                 </form>
             </div>
         )

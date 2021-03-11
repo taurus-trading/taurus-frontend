@@ -13,7 +13,9 @@ export default class NotesItem extends Component {
         return (
             <div className="note-item">
                 <p>{this.props.userEntry}</p>
-                <IconButton style={iconStyle} onClick={this.handleDelete}><DeleteOutlineIcon/></IconButton>
+                <span className="delete-button">
+                    <IconButton style={iconStyle} onClick={this.handleDelete}><DeleteOutlineIcon/></IconButton>
+                </span>
             </div>
         )
     }
