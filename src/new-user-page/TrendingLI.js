@@ -5,7 +5,7 @@ export default class TrendingLI extends Component {
     
         return (
 
-                <div className='trending-item'>
+                <div className='trending-item' onClick={()=>this.props.onClick(this.props.symbol, this.props.title)}>
                     <p className='symbol'>{this.props.symbol}</p>
                     <p className='title'>{this.props.title}</p>
                     {/* <button value={this.props.value} onClick={()=>this.props.handleSubmit(this.props.symbol, this.props.title)}>Add to Watchlist</button> */}
