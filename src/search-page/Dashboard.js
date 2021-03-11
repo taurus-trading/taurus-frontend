@@ -39,9 +39,9 @@ export default class Dashboard extends Component {
 
     }
 
-    componentWillUnmount = () => {
-        clearInterval(this.state.timer);
-    }
+    // componentWillUnmount = () => {
+    //     clearInterval(this.state.timer);
+    // }
     handleStockSelect = async (ticker) => {
 
         try {
