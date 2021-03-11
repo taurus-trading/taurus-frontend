@@ -147,7 +147,6 @@ export default class PortfolioPage extends Component {
                         }
                 </div>
 
-
             </div>
         )
     }
