@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import DataTable from 'react-data-table-component';
-import FavoriteItem from '../search-page/favorites/FavoritesItem.js';
+// import FavoriteItem from '../search-page/favorites/FavoritesItem.js';
 // import stocks from './hard-coded-portfolio.js';
 import { addToPortfolio, getUserPortfolio, getUserWatchList, deleteFromPortfolio } from '../utils/user-utils';
 import { getCurrentStockPrice } from '../utils/api-utils'
@@ -131,10 +131,10 @@ export default class PortfolioPage extends Component {
 
     handleDelete = async () => {
       console.log('selected rows:', selectedRowsArray)
-      await selectedRowsArray.map(row => {
+      await Promise.all(selectedRowsArray.map(row => {
 
         return deleteFromPortfolio(this.props.token, row.transaction_id);
-      })
+      }))
       await this.fetchPortfolio();
     }
 
@@ -169,6 +169,7 @@ export default class PortfolioPage extends Component {
                 />
                 
                 <button onClick={this.handleDelete}>Delete Rows</button>
+
 
 
             </div>
