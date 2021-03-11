@@ -9,7 +9,7 @@ import Dashboard from './search-page/Dashboard.js';
 import AboutPage from './about/AboutPage.js';
 import Header from './components/Header.js';
 import NewUserPage from './new-user-page/NewUserPage.js';
-import PortfolioPage from './search-page/portfolio/PortfolioPage.js';
+import PortfolioPage from './portfolio/PortfolioPage.js';
 import SignupPage from './auth/SignupPage.js';
 import PrivateRoute from './components/PrivateRoute.js'
 import React, { Component } from 'react'
@@ -18,6 +18,7 @@ import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStor
 export default class App extends Component {
   state = {
     token: getUserFromLocalStorage(),
+    selecredRows: [],
   }
 
   handleUserChange = (token) => {
@@ -29,6 +30,10 @@ export default class App extends Component {
       token: ''
     })
     removeUserFromLocalStorage();
+  }
+
+  storeSelectedrows = (rows) => {
+    this.setState({selectedRows: rows})
   }
 
   render() {
@@ -78,6 +83,7 @@ export default class App extends Component {
               token={this.state.token}
               render={(routerProps) => <PortfolioPage
                 token={this.state.token}
+                storeSelectedRows={this.storeSelectedRows}
                 {...routerProps}
               />}
             />

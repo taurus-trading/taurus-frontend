@@ -61,6 +61,11 @@ export async function deleteFromWatchList(token, id) {
 
     return response.body;
 }
+export async function deleteFromPortfolio(token, id) {
+    const response = await request.delete(`${BACK_END_URL}/api/portfolio/${id}`).set('Authorization', token);
+
+    return response.body;
+}
 
 //local storage functions
 export function addUserToLocalStorage(token) {
