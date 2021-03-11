@@ -1,3 +1,22 @@
-.favorite-item:hover{
+.favItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.favItem:hover  {
     background-color: var(--cream);
+    cursor: pointer;
+}
+.favSymbol {
+    font-weight: bold;
+}
+.favTitle {
+    font-size: 10px;
+    word-wrap: normal;
+}
+
+.watchlisth2 {
+    text-align: center;
+    font-size: 18px;
+
 }

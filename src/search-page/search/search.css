@@ -1,3 +1,20 @@
-.search-item:hover{
+.searchForm label{
+    font-weight: bold;
+}
+.searchItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.searchItem:hover  {
     background-color: var(--cream);
+    cursor: pointer;
+}
+.searchSymbol {
+    font-weight: bold;
+}
+.searchTitle {
+    font-size: 10px;
+    word-wrap: normal;
 }

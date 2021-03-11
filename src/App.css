@@ -1,3 +1,7 @@
+:root{
+    --white: rgba(255,255,255,1);
+    --cream: rgba(215,215,215,1);
+}
 .App {
   text-align: center;
 }

@@ -3,6 +3,7 @@ import {LineChart, Line, CartesianGrid, XAxis, YAxis, Tooltip, ResponsiveContain
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
+import GraphHeader from './GraphHeader.js';
 
 import {getStockPriceHistory} from '../../utils/api-utils.js'
 import {createConvertStartOfDay, generateInterval, getCurrentTimeMilli} from '../../utils/date-utils.js'
@@ -78,7 +79,7 @@ export default class StockGraph extends Component {
  
         return (
             <div>
-                Graph of {this.props.ticker}
+                <GraphHeader ticker={this.props.ticker}></GraphHeader>
                 {renderLineChart}
                 <form onSubmit={ this.onFormSubmit }>
                     <div className="form-group">
