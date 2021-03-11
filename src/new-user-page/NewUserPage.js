@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import {Link} from 'react-router-dom'
 import TrendingDiv from './TrendingDiv.js';
 import StockAdvice from './StockAdvice.js';
 import {getTrending} from '../utils/api-utils.js';
@@ -11,38 +12,40 @@ export default class NewUserPage extends Component {
         trending: [],
         symbol:'',
         title: '',
-        step1: '',
-        step2: '',
+        onScreen: '',
+      
     }
 
     componentDidMount = async () => {
 
         const trendingListOfStocks = await getTrending();
-        this.setState({step1: true});
-        this.setState({step2: false});
+        this.setState({onScreen: true});
+
         this.setState({trending: trendingListOfStocks.symbols})
     }
     handleSubmit = async(symbol, title) => {
 
         await addToWatchList(this.props.token, symbol, title);
-        if(this.state.step1 === true){
-            this.setState({step1: false})
-            this.setState({step2: true})
+        if(this.state.onScreen === true){
+            this.setState({onScreen: false})
+          
         }
-        console.log(this.state);
+       
         alert('clicked')
     }
 
     render() {
         console.log(this.state)
         return (
-            <div className='new-user-wrapper'>
-                <p className={`${this.state.step1} what`}>
-                    Please select click on a stock to add it to your watchlist. <br/>
+            <>
+                <p className={`${this.state.onScreen}-what what`}>
+                    Please click on a stock to add it to your watchlist. <br/>
                 </p>
-                {/* <p className={`${this.state.step2} why`}>
-                    Any stock added to your watchlist or favorites will allow you to view a chart of that stock's price history
-                </p> */}
+                <p className={`${this.state.onScreen}-why why`}>
+                    <Link to='/dashboard'  style={{ textDecoration: 'none', color:'white'}}>Great job! Click here to go to your Dashboard</Link>
+                </p>
+            <div className='new-user-wrapper'>
+                
                 <div className='trending-list'>
                     <TrendingDiv 
                     trendingList={this.state.trending}
@@ -54,6 +57,7 @@ export default class NewUserPage extends Component {
                     <StockAdvice />
                 </div>
             </div>
+            </>
         )
     }
 }
