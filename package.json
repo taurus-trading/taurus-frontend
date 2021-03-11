@@ -8,7 +8,7 @@
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.8.1",
-    "material-ui": "^1.0.0-beta.47",
+    "material-ui": "^0.20.2",
     "react": "^17.0.1",
     "react-data-table-component": "^6.11.7",
     "react-datepicker": "^3.6.0",
