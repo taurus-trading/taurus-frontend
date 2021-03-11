@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import DataTable from 'react-data-table-component';
 // import FavoriteItem from '../search-page/favorites/FavoritesItem.js';
 // import stocks from './hard-coded-portfolio.js';
-import { addToPortfolio, getUserPortfolio, getUserWatchList, deleteFromPortfolio } from '../utils/user-utils';
+import { addToPortfolio, getUserPortfolio, deleteFromPortfolio } from '../utils/user-utils';
 import { getCurrentStockPrice } from '../utils/api-utils'
 import './portfolio.css';
 
