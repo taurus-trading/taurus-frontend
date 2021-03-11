@@ -1,31 +1,40 @@
 import React, { Component } from 'react'
-import {NavLink} from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import TickerMarquee from './TickerMarquee.js'
 
 export default class Header extends Component {
     render() {
         return (
-            <div className='header-div'>
-                            <div>   
-                <TickerMarquee />
-            </div>
-            <div className='nav'>
-                <NavLink  activeClassName="active" className='links' exact to="/">Home</NavLink>
-                <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
-                <NavLink activeClassName="active" className='links' exact to="/newuser">New User</NavLink>
-                <NavLink activeClassName="active" className='links' exact to="/portfolio">Portfolio</NavLink>
-                {
-                this.props.user && this.props.user.token && <>
-                {/* once we have a user signed in this should work to display the portfolio page */}
-                {/* <NavLink activeClassName="active" className='links' to="/dashboard">Dashboard</NavLink> */}
-                <button onClick={this.props.handleLogout}>Sign out</button>
-                </>
-                }
-                <br/>
-                <br/>
-            </div>
+            <header className='header-div'>
+                <div>
+                    <TickerMarquee />
+                </div>
+                <div className='nav'>
+                    {/* links if you do have a token */}
+                    {
+                        this.props.token &&
+                        <>
+                            <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
+                            <NavLink activeClassName="active" className='links' exact to="/about">About</NavLink>
+                            <NavLink activeClassName="active" className='links' exact to="/portfolio">Portfolio</NavLink>
+                            <NavLink onClick={this.props.handleLogout} activeClassName="active" className='links' exact to="/">Logout</NavLink>
+                            {/* take out new user page for production */}
+                            <NavLink activeClassName="active" className='links' exact to="/newuser">New User(remove for production build)</NavLink>
 
-            </div>
+                        </>
+                    }
+                    {/* links if you don't have a token */}
+                    {
+                        !this.props.token &&
+                        <>
+                            <NavLink activeClassName="active" className='links' exact to="/about">About</NavLink>
+                            <NavLink activeClassName="active" className='links' exact to="/">Login</NavLink>
+                            <NavLink activeClassName="active" className='links' exact to="/signup">Signup</NavLink>
+                        </>
+                    }
+                </div>
+
+            </header>
         )
     }
 }

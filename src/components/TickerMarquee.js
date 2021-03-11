@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Ticker from './Ticker.js'
+// import Ticker from './Ticker.js'
 
 export default class TickerMarquee extends Component {
     render() {
