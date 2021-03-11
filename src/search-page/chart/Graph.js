@@ -68,7 +68,7 @@ export default class StockGraph extends Component {
             return {name: interval.toString(), price:dataPoint}
         });
         const renderLineChart = (
-        <LineChart width={900} height={600} data={realData}>
+        <LineChart width={800} height={600} data={realData}>
             <Line type="monotone" dataKey="price" stroke="#D5D984" />
             <CartesianGrid stroke="#000" />
             <XAxis />
