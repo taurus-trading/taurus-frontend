@@ -18,7 +18,6 @@ import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStor
 export default class App extends Component {
   state = {
     token: getUserFromLocalStorage(),
-    selecredRows: [],
   }
 
   handleUserChange = (token) => {
@@ -31,11 +30,6 @@ export default class App extends Component {
     })
     removeUserFromLocalStorage();
   }
-
-  storeSelectedrows = (rows) => {
-    this.setState({selectedRows: rows})
-  }
-
   render() {
     return (
       <div>
