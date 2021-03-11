@@ -28,6 +28,7 @@ export default class Favorites extends Component {
     render() {
         return (
             <div className="favoritesSection border">
+                <h2 className="watchlisth2">Your Watch List</h2>
                 <>
                     {
                         this.state.watchlist.length > 0 && this.state.watchlist.map(item => {

@@ -1,22 +1,20 @@
-.favItem {
+.searchForm label{
+    font-weight: bold;
+}
+.searchItem {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.favItem:hover  {
+
+.searchItem:hover  {
     background-color: var(--cream);
     cursor: pointer;
 }
-.favSymbol {
+.searchSymbol {
     font-weight: bold;
 }
-.favTitle {
+.searchTitle {
     font-size: 10px;
     word-wrap: normal;
-}
-
-.watchlisth2 {
-    text-align: center;
-    font-size: 18px;
-
 }
