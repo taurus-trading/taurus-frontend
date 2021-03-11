@@ -11,7 +11,7 @@ export default class FavoriteItem extends Component {
     }
     render() {
         return (
-            <div onClick={() => {this.props.handleStockSelect(this.props.stockInfo.symbol)}}>
+            <div className='favorite-item' onClick={() => {this.props.handleStockSelect(this.props.stockInfo.symbol)}}>
                 <p>{this.props.stockInfo.symbol}</p>
                 <p>{this.props.stockInfo.title}</p>
                 <button onClick={this.handleRemoveFromFavs}>Remove from Watch List</button>

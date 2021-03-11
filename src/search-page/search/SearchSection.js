@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { searchStocks } from '../../utils/api-utils'
 import SearchForm from './SearchForm'
 import SearchItem from './SearchItem.js'
+import './search.css'
 
 export default class SearchSection extends Component {
     state = {

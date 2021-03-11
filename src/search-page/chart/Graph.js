@@ -67,8 +67,8 @@ export default class StockGraph extends Component {
         });
         const renderLineChart = (
         <LineChart width={800} height={600} data={realData}>
-            <Line type="monotone" dataKey="price" stroke="#8884d8" />
-            <CartesianGrid stroke="#ccc" />
+            <Line type="monotone" dataKey="price" stroke="#D5D984" />
+            <CartesianGrid stroke="#000" />
             <XAxis dataKey="name" />
             <YAxis />
             <Tooltip />

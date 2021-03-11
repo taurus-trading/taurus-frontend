@@ -34,6 +34,7 @@ export default class NewUserPage extends Component {
                     />
                 </div>
                 <div className='advice'>
+                    <h1>Beginner Advice</h1>
                     <StockAdvice />
                 </div>
             </div>
