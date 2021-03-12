@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-// import DatePicker from 'react-datepicker';
-// import "react-datepicker/dist/react-datepicker.css";
 import GraphHeader from './GraphHeader.js';
 import Chart from './Generate.js';
 import DatePicker from './DatePicker.js'
