@@ -99,11 +99,11 @@ cursor: pointer;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
-    top: 20%;
+    top: 12%;
     left: -30%;
     width: 350px;
   
-    
+
     text-align: center;
 }
 
@@ -115,7 +115,7 @@ cursor: pointer;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
-    top: 20%;
+    top: 12%;
     right: -30%;
     width: 350px;
     margin-bottom: 15px 0;
