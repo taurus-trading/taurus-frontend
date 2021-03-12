@@ -56,7 +56,7 @@ class Signup extends Component {
                 !this.state.validEmail && <h3 style={{ color: 'red'}}>{'enter valid email'}</h3>
                 }
                 <form onSubmit={this.handleSubmit}>
-                <h2 className='welcome'>Welcome to BigInt Trading</h2>
+                <h2 className='welcome'>Welcome to Taurus Trading</h2>
                     <label>
                         <input 
                             value={this.state.email} 

@@ -35,7 +35,7 @@ export default class NewUserPage extends Component {
             <>
             <div>
                 <p className={`${this.state.onScreen}-what what`}>
-                    Below are 30 of the trendiest right now, lets click some to add them to your watchlist! <br/>
+                    Below are the top 30 current trending stocks, lets click some to add them to your watchlist! <br/>
                 </p>
                 <p className={`${this.state.onScreen}-why why`}>
                     <Link to='/dashboard'  style={{ textDecoration: 'none', color:'white'}}>WOW those stocks are some trendy tendies. <br/> <span className='dash-link'>Let's go to the dashboard!</span></Link>

@@ -19,6 +19,7 @@ export default class App extends Component {
   state = {
     token: getUserFromLocalStorage(),
   }
+  componentDidCatch
 
   handleUserChange = (token) => {
     this.setState({ token: token })

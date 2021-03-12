@@ -16,10 +16,11 @@ export default class Header extends Component {
                         <>
                             <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
                             <NavLink activeClassName="active" className='links' exact to="/portfolio">Portfolio</NavLink>
-                            <NavLink onClick={this.props.handleLogout} activeClassName="active" className='links' exact to="/">Logout</NavLink>
-                            <NavLink activeClassName="active" className='about' exact to="/about">About Us</NavLink>
+                           
                             {/* take out new user page for production */}
-                            <NavLink activeClassName="active" className='links' exact to="/newuser">Trending Stocks</NavLink>
+                            <NavLink activeClassName="active" className='links trending' exact to="/newuser">Trending Stocks</NavLink>
+                            <NavLink onClick={this.props.handleLogout} activeClassName="active" className=' logout' exact to="/">Logout</NavLink>
+                            <NavLink activeClassName="active" className='about' exact to="/about">About Us</NavLink>
 
                         </>
                     }

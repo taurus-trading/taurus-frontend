@@ -92,14 +92,15 @@ cursor: pointer;
 }
 
 .what{
+    visibility: hidden;
     background-color: black;
     color: white;
     border-radius: 10px;
     padding: 5px;
-    position: absolute;
+    position: relative;
     box-sizing: border-box;
     display: inline-block;
-    top: 12%;
+    
     left: -30%;
     width: 350px;
   
@@ -108,14 +109,13 @@ cursor: pointer;
 }
 
 .why{
+   visibility: hidden;
     background-color: black;
     color: white;
     border-radius: 10px;
     padding: 5px;
     position: absolute;
     box-sizing: border-box;
-    display: inline-block;
-    top: 12%;
     right: -30%;
     width: 350px;
     margin-bottom: 15px 0;
@@ -123,13 +123,13 @@ cursor: pointer;
 }
 
 .true-what {
-    animation: slideIn normal 2.5s forwards;
+    animation: slideIn normal 1s forwards;
 }
 .false-what{
-    animation: slideOut normal 2.5s forwards ;
+    animation: slideOut normal 1s forwards ;
 }
 .false-why {
-    animation: slideInWhy normal 2.5s forwards;
+    animation: slideInWhy normal 1s forwards;
 }
 .checked{
     color:green;
@@ -145,18 +145,35 @@ cursor: pointer;
 }
 
 @keyframes slideIn{
-   0% {left: -255px;}
-   75% {left:42%; box-shadow: 1px 1px 1px 5px yellow;}
-    100% {left: 42%;box-shadow:2px 2px 2px 10px yellow;}
+   0% {
+       
+    top:50px; 
+       visibility: visible;
+    }
+   75% {
+       left: 40%; 
+       box-shadow: 1px 1px 1px 5px yellow;
+       top:50px; 
+       margin: 0 auto;
+       visibility: visible;
+    }
+    100% {
+        left: 40%;
+        box-shadow:2px 2px 2px 10px yellow;
+        top:50px; 
+        visibility: visible;
+        margin: 0 auto;
+    }
 }
 @keyframes slideInWhy{
-    0% {right: -255px;}
-    75% {right: 45%; box-shadow: 1px 1px 1px 5px yellow;}
-    80% {right: 45%; box-shadow:2px 2px 2px 8px yellow;}
-    100% {right: 45%; box-shadow:2px 2px 2px 10px yellow;}
+    0% {right: 0px; top: 10px; visibility: visible;}
+    100% {right: 40%; box-shadow: 1px 1px 1px 5px yellow; top: 13%;visibility: visible; }
+    /* 80% {right: 40%; box-shadow:2px 2px 2px 8px yellow; top: 10px; display: block;}
+    100% {right: 40%; box-shadow:2px 2px 2px 10px yellow; top: 10px; display: block;} */
     
  }
 @keyframes slideOut{
     0% {left: 42%; box-shadow:2px 2px 2px 5px yellow;}
-    100% {left: -37.5%; } 
+    90% {left: -37.5%; } 
+    100% {left: -37.5%;visibility: hidden; } 
 }
