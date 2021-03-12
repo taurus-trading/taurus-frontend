@@ -1,9 +1,6 @@
 .notes-section {
-   width: 100%;
-   box-shadow: 1px 1px 10px grey;
-   /* background-color: whitesmoke; */
-   padding: 10px;
-   /* margin: 10px 7px; */
+    padding: 10px;
+    max-width: 625px;
 }
 .notes-section h3 {
     text-align: center;

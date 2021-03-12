@@ -36,3 +36,10 @@
 .graph-header-div {
     text-align: center;
 }
+.form-group {
+    width: 50%;
+    margin: 0 auto;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 4px grey;
+}

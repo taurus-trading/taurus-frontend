@@ -1,6 +1,13 @@
 .portfolioModule {
     box-shadow: 1px 1px 10px grey;
     height: 100%;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.innerCont {
+    margin-top: 50px;
 }
 .portfolioModule h2 {
     margin-top: 0;
@@ -18,9 +25,12 @@
     padding: 15px;
 }
 .portfolio-wrapper button{
-    box-shadow: black 1px 1px 10px;
-    margin: 0 auto;
+    padding: 0;
+    text-align: left;
+}
+.green {
+    color: green;
+}
+.blueButt {
     margin-top: 20px;
-    border-radius: 10px;
-   
 }

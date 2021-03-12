@@ -19,7 +19,7 @@ export default class Header extends Component {
                             <NavLink onClick={this.props.handleLogout} activeClassName="active" className='links' exact to="/">Logout</NavLink>
                             <NavLink activeClassName="active" className='about' exact to="/about">About Us</NavLink>
                             {/* take out new user page for production */}
-                            <NavLink activeClassName="active" className='links' exact to="/newuser">New User(remove for production build)</NavLink>
+                            <NavLink activeClassName="active" className='links' exact to="/newuser">Trending Stocks</NavLink>
 
                         </>
                     }

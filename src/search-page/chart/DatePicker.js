@@ -9,7 +9,7 @@ export default class Calendar extends Component {
         return (
             <div>
                 <form onSubmit={ this.props.onSubmit }>
-                        <div className="form-group">
+                        <div className="form-group moduleStyle">
                         <DatePicker
                             selected={this.props.selected}
                             onChange={ this.props.onChange }

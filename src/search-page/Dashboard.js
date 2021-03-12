@@ -75,7 +75,7 @@ export default class Dashboard extends Component {
 
                 <div className='graph-section'>
                     <StockGraph ticker={this.state.ticker} />
-                    <div>
+                    <div className='moduleStyle'>
                         <PortfolioModule
                             token={this.props.token}
                             ticker={this.state.ticker} />

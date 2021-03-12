@@ -27,10 +27,11 @@ ul {
     width: 20px;
 }
 .tweet-item {
-    word-wrap: normal;
+    word-wrap: break-word;
     margin: 5px 0;
     box-shadow: 1px 1px 3px grey;
     padding: 5px;
+    max-width: 600px;
 }
 .tweet-item:hover {
     background-color: var(--cream);
