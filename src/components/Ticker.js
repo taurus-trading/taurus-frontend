@@ -11,9 +11,9 @@ export default class Ticker extends Component {
     }
 
     render() {
-           const item = this.state.trending.map(trendingItem => {
-                return <li><span>{trendingItem.symbol}</span><span>{trendingItem.title}</span></li>
-            })
+        //    const item = this.state.trending.map(trendingItem => {
+        //         return <li><span>{trendingItem.symbol}</span><span>{trendingItem.title}</span></li>
+        //     })
         return (
             <>
                 {
