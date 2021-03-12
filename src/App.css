@@ -17,6 +17,8 @@
   paint-order: stroke fill; */
   text-decoration: none;
 }
+
+
 .about {
   color: yellow;
   text-shadow: -2px 0 5px yellow;
@@ -49,6 +51,9 @@
  color: white;
 
 }
+.marquee-div{
+  background: black;
+}
 .ticker-list {
   float: left;
   display: flex;
@@ -58,6 +63,7 @@
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
+  background: rgba(0,0,0,0);
   animation: tickerMove 20s infinite;
   background-color: black;
 }
@@ -78,7 +84,10 @@
   text-shadow: -2px 0 10px red;
 }
 .nav {
-  background-color: black;
+  border-bottom: 2px solid black;
+  padding: 0;
+  background: white;
+
 }
 
 

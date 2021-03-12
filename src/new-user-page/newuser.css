@@ -6,29 +6,15 @@
 p {
     margin: 5px;
 }
-/* 
-.trending-list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    height: 300px;
-    /* overflow-y: scroll; */
-   
-/* } */ 
-
 
 .trending-list{
-    padding-top: 60px;
-    /* box-sizing: border-box; */
+    padding-top: 100px;
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-    /* border: 5px solid salmon; */
     flex-wrap: wrap;
     height: 100%;
- 
     margin: 3px 0;
-    /* overflow-y: scroll; */
     width: 100%;
 }
 
@@ -48,9 +34,11 @@ background-color: var(--cream);
 animation: linear 200ms shake;
 cursor: pointer;
 }
+
 @keyframes shake{
     0% {transform: rotate(5deg) }
 }
+
 .trending-item:active{
     box-sizing: border-box;
     position: relative;
@@ -66,12 +54,8 @@ cursor: pointer;
     flex-direction: row;
     justify-content: space-evenly;
     height: 500px;
-   
-    /* width: 600px; */
     width: 100%;
 }
-
-
 
 .title {
     font-size: 12px;
@@ -114,9 +98,9 @@ cursor: pointer;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
-    top: 12%;
-    left: -310px;
-    width: 300px;
+    top: 17%;
+    left: -30%;
+    width: 350px;
   
     margin-bottom: 15px 0;
     text-align: center;
@@ -130,9 +114,9 @@ cursor: pointer;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
-    top: 12%;
-    right: -310px;
-    width: 300px;
+    top: 17%;
+    right: -30%;
+    width: 350px;
     margin-bottom: 15px 0;
     text-align: center;
 }
@@ -155,23 +139,19 @@ cursor: pointer;
     color: black;
 }
 
-
-
 @keyframes slideIn{
    0% {left: -255px;}
-   75% {left: 37.5%; box-shadow: 1px 1px 1px 5px yellow;}
-    100% {left: 37.5%;box-shadow:2px 2px 2px 10px yellow;}
+   75% {left: 35%; box-shadow: 1px 1px 1px 5px yellow;}
+    100% {left: 35%;box-shadow:2px 2px 2px 10px yellow;}
 }
 @keyframes slideInWhy{
     0% {right: -255px;}
-    75% {right: 38%; box-shadow: 1px 1px 1px 5px yellow;}
-    180% {right: 38%; color: yellow;}
-    100% {right: 38%; box-shadow:2px 2px 2px 10px yellow;}
-    /* 75% {left: 39%; box-shadow: 1px 1px 1px 5px yellow;}
-     100% {left: 39%;box-shadow:2px 2px 2px 10px yellow;} */
+    75% {right: 36%; box-shadow: 1px 1px 1px 5px yellow;}
+    80% {right: 36%; box-shadow:2px 2px 2px 8px yellow;}
+    100% {right: 36%; box-shadow:2px 2px 2px 10px yellow;}
+    
  }
 @keyframes slideOut{
-    0% {left: 500px;}
-    
-    100% {left: -37.5%;} 
+    0% {left: 500px; box-shadow:2px 2px 2px 10px yellow;}
+    100% {left: -37.5%; } 
 }

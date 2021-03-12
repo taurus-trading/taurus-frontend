@@ -12,15 +12,11 @@ export default class TrendingLI extends Component {
     render() {
         return (
                 <div className={`trending-item ${this.state.className}`} 
-                onClick={()=> {
-
-
-                    this.props.onClick(this.props.symbol, this.props.title);
-
-                    
-                    this.handleClassChange(); 
-                    }
-                }           
+                    onClick={()=> {
+                            this.props.onClick(this.props.symbol, this.props.title);
+                            this.handleClassChange(); 
+                        }
+                    }           
                 >
                     <p className='symbol'>{this.props.symbol}</p>
                     <p className='title'>{this.props.title}</p>

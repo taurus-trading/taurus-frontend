@@ -8,6 +8,7 @@ export default class Header extends Component {
             <header className='header-div'>
                 <div className='marquee-div'>
                     <TickerMarquee />
+                </div>
                     <div className='nav'>
                     {/* links if you do have a token */}
                     {
@@ -31,7 +32,6 @@ export default class Header extends Component {
                             <NavLink activeClassName="active" className='links' exact to="/signup">Signup</NavLink>
                         </>
                     }
-                </div>
 
                 </div>
                
