@@ -56,20 +56,25 @@ class Signup extends Component {
                 !this.state.validEmail && <h3 style={{ color: 'red'}}>{'enter valid email'}</h3>
                 }
                 <form onSubmit={this.handleSubmit}>
+                <h2 className='welcome'>Welcome to BigInt Trading</h2>
                     <label>
-                        Email: 
-                        <input value={this.state.email} onChange={this.handleEmail}  />
+                        <input 
+                            value={this.state.email} 
+                            onChange={this.handleEmail}
+                            name='email'  
+                            placeholder='email'
+                        />
                     </label>
                     <label>
-                        Password: 
-                        <input value={this.state.password} onChange={this.handlePassword} type="password" name="password" />
+                        <input 
+                            value={this.state.password} 
+                            onChange={this.handlePassword}
+                            placeholder='password' 
+                            type="password" 
+                            name="password" 
+                        />
                     </label>
-                    <label>
-                        Username: 
-                        <input value={this.state.username} onChange={this.handleUsername}  />
-                    </label>
-
-                    <button>Sign Up</button>
+                    <button className='login-signup-button'>Sign Up</button>
                 </form>
             </div>
         )

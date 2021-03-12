@@ -6,12 +6,9 @@ export default class GraphHeader extends Component {
         cost: '',
     }
     componentDidMount = async () => {
-
         const priceObj = await getCurrentStockPrice(this.props.ticker);
-        
+        console.log(this.props.ticker);
         this.setState({cost: priceObj.c});   
-    
-
     }
     componentDidUpdate = async () => {
         const priceObj = await getCurrentStockPrice(this.props.ticker);
@@ -21,7 +18,6 @@ export default class GraphHeader extends Component {
         this.setState({cost: priceObj.c}); 
     }
     render() {
-        console.log(this.state.cost);
         return (
             <div className='graph-header-div'>
                 <h1>{this.props.ticker}</h1>

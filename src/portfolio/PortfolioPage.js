@@ -151,6 +151,7 @@ export default class PortfolioPage extends Component {
                                 gain_loss: Number((currentPrice * item.quantity) - (item.quantity * item.cost)).toFixed(2),
                             }
                         })
+                  
                     }
                 />
                 <p className="totalGainDiv">Total Gain/(Loss): ${this.state.totalGain}</p>

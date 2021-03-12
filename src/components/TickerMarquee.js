@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import Ticker from './Ticker.js'
+import Ticker from './Ticker.js'
 
 export default class TickerMarquee extends Component {
     render() {
@@ -7,7 +7,7 @@ export default class TickerMarquee extends Component {
             <div>
                 <ul className='ticker-list'>
 
-                {/* <Ticker /> */}
+                <Ticker />
                 </ul>
             </div>
         )

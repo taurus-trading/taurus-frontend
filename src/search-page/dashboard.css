@@ -1,6 +1,6 @@
 .dashboard {
     display: grid;
-    grid-template-columns: 18% 52% 30%;
+    grid-template-columns: 1fr 4fr 2fr;
 }
 .rightSideBar {
     display: grid;

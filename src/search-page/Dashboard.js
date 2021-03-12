@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
 
 
     state = {
-        ticker: 'TSLA',
+        ticker: 'DOW',
         token: '',
         tweets: [],
         trending: [],
@@ -62,9 +62,7 @@ export default class Dashboard extends Component {
                 error: e.response.body.error,
                 tweets: [],
             })
-
         }
-
     }
 
     render() {

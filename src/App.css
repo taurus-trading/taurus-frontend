@@ -18,11 +18,40 @@ body, html {
 }
 
 .links{
-  margin: 0 10px;
+  font-size: 1.3rem;
+  margin: 5px 10px;
   width: 200px;
+  color: white;
+  font-weight: bold;
+  /* -webkit-text-stroke: 2px black;
+  paint-order: stroke fill; */
+  text-decoration: none;
 }
+
+
+.about {
+  color: yellow;
+  text-shadow: -2px 0 5px yellow;
+  text-decoration: none;
+  position: absolute;
+  right: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.links:nth-child(4){
+  color: yellow;
+  text-shadow: -2px 0 5px yellow;
+  text-decoration: none;
+
+  /* -webkit-text-stroke: 2px black; */
+ 
+}
+
 .active {
-  color: #61dafb;
+  color: rgb(0, 255, 0);
+  background-color: black;
+  text-shadow: -2px 0 5px rgb(0, 255, 0);
+  /* -webkit-text-stroke: 2px white; */
 } 
 .header-div{
  display: grid;
@@ -30,7 +59,10 @@ body, html {
  overflow: hidden;
  background-color: black;
  color: white;
- 
+
+}
+.marquee-div{
+  background: black;
 }
 .ticker-list {
   float: left;
@@ -41,7 +73,9 @@ body, html {
   position: relative;
   box-sizing: border-box;
   overflow: hidden;
+  background: rgba(0,0,0,0);
   animation: tickerMove 20s infinite;
+  background-color: black;
 }
 .ticker-item{
   width: 115px;
@@ -60,7 +94,10 @@ body, html {
   text-shadow: -2px 0 10px red;
 }
 .nav {
-  background-color: white;
+  border-bottom: 2px solid black;
+  padding: 0;
+  background: white;
+
 }
 
 .moduleStyle {
