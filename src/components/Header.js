@@ -14,9 +14,9 @@ export default class Header extends Component {
                         this.props.token &&
                         <>
                             <NavLink activeClassName="active" className='links' exact to="/dashboard">User Dashboard</NavLink>
-                            <NavLink activeClassName="active" className='links' exact to="/about">About</NavLink>
                             <NavLink activeClassName="active" className='links' exact to="/portfolio">Portfolio</NavLink>
                             <NavLink onClick={this.props.handleLogout} activeClassName="active" className='links' exact to="/">Logout</NavLink>
+                            <NavLink activeClassName="active" className='about' exact to="/about">About Us</NavLink>
                             {/* take out new user page for production */}
                             <NavLink activeClassName="active" className='links' exact to="/newuser">New User(remove for production build)</NavLink>
 
