@@ -39,7 +39,7 @@ export default class NoteDisplay extends Component {
 
     render() {
         return (
-            <div className="notes-section">
+            <div className="notes-section moduleStyle">
                 <h3>My Notes</h3>
                 <NotesInput noteInput={this.state.noteInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} />
                 <div className="notes-div">

@@ -1,10 +1,9 @@
 .notes-section {
-   width: 500px;
-   height: 320px;
-   float: right;
-   margin: 20px;
-   box-shadow: 1px 1px 3px grey;
-   background-color: whitesmoke;
+    padding: 10px;
+    max-width: 625px;
+}
+.notes-section h3 {
+    text-align: center;
 }
 
 .notes-div {

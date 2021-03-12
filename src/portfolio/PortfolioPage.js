@@ -5,6 +5,8 @@ import DataTable from 'react-data-table-component';
 import { addToPortfolio, getUserPortfolio, deleteFromPortfolio } from '../utils/user-utils';
 import { getCurrentStockPrice } from '../utils/api-utils'
 import './portfolio.css';
+import  { IconButton }  from '@material-ui/core';
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
 const columns = [
   {
@@ -65,7 +67,7 @@ export default class PortfolioPage extends Component {
         watchlist: [],
         portfolio: [],
         currentPrice: [],
-        ticker:'QQQ',
+        ticker:'',
         selectedRows: [],
         totalGain: 0
     }
@@ -155,7 +157,8 @@ export default class PortfolioPage extends Component {
                     }
                 />
                 <p className="totalGainDiv">Total Gain/(Loss): ${this.state.totalGain}</p>
-                <button onClick={this.handleDelete}>Delete Rows</button>
+                {/* <button onClick={this.handleDelete}>Delete Rows</button> */}
+                <IconButton color="secondary" size="large" onClick={this.handleDelete}><DeleteOutlineIcon/></IconButton>
 
 
 
