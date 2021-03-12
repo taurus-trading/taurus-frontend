@@ -40,24 +40,25 @@ class LoginForm extends Component {
                 {
                 this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
                 }
+                <h2 className='welcome'>Welcome to BigInt Trading</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Email: 
+                    <label className='email'>
                         <input 
                         value={this.state.email} 
-                        onChange={this.handleEmail} 
+                        onChange={this.handleEmail}
+                        placeholder='Email' 
                         name='email'  />
                     </label>
-                    <label>
-                        Password: 
+                    <label className='password'>
                         <input 
                         value={this.state.password} 
                         onChange={this.handlePassword} 
+                        placeholder='password'
                         name='password' 
                         type='password' />
                     </label>
 
-                    <button>Login</button>
+                    <button className='login-signup-button'>Login</button>
                 </form>
             </div>
         )

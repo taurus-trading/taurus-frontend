@@ -11,23 +11,37 @@
   font-size: 1.3rem;
   margin: 5px 10px;
   width: 200px;
-  color: black;
+  color: white;
   font-weight: bold;
-  -webkit-text-stroke: 2px red;
+  /* -webkit-text-stroke: 2px black;
+  paint-order: stroke fill; */
   text-decoration: none;
 }
-.links:nth-child(1){
-  color: green;
+
+
+.about {
+  color: yellow;
+  text-shadow: -2px 0 5px yellow;
   text-decoration: none;
-  margin-right: 20px;
-  -webkit-text-stroke: 2px black;
+  position: absolute;
+  right: 0;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.links:nth-child(4){
+  color: yellow;
+  text-shadow: -2px 0 5px yellow;
+  text-decoration: none;
+
+  /* -webkit-text-stroke: 2px black; */
  
 }
 
 .active {
-  color: green;
-  
-  -webkit-text-stroke: 2px green;
+  color: rgb(0, 255, 0);
+  background-color: black;
+  text-shadow: -2px 0 5px rgb(0, 255, 0);
+  /* -webkit-text-stroke: 2px white; */
 } 
 .header-div{
  display: grid;
@@ -35,7 +49,7 @@
  overflow: hidden;
  background-color: black;
  color: white;
- 
+
 }
 .marquee-div{
   background: black;
@@ -51,6 +65,7 @@
   overflow: hidden;
   background: rgba(0,0,0,0);
   animation: tickerMove 20s infinite;
+  background-color: black;
 }
 .ticker-item{
   width: 115px;
@@ -69,8 +84,10 @@
   text-shadow: -2px 0 10px red;
 }
 .nav {
-
   border-bottom: 2px solid black;
   padding: 0;
   background: white;
+
 }
+
+

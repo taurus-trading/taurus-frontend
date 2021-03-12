@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
-// import LoginForm from './LoginForm'
-
 import { SignupWithRouter } from './SignupForm.js';
 import './LoginSignup.css';
 import BackgroundImage from './BackgroundImage.js';
+import './LoginSignup.css';
 
 export default class SignupPage extends Component {
     state = {
