@@ -156,7 +156,7 @@ export default class PortfolioPage extends Component {
                   
                     }
                 />
-                <p className="totalGainDiv">Total Gain/(Loss): ${this.state.totalGain}</p>
+                <p className="totalGainDiv">Total Gain/(Loss): ${this.state.totalGain.toFixed(2)}</p>
                 {/* <button onClick={this.handleDelete}>Delete Rows</button> */}
                 <IconButton color="secondary" size="large" onClick={this.handleDelete}><DeleteOutlineIcon/></IconButton>
 

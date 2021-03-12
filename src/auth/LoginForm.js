@@ -40,7 +40,7 @@ class LoginForm extends Component {
                 {
                 this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
                 }
-                <h2 className='welcome'>Welcome to BigInt Trading</h2>
+                <h2 className='welcome'>Welcome to Taurus Trading</h2>
                 <form onSubmit={this.handleSubmit}>
                     <label className='email'>
                         <input 
