@@ -16,7 +16,11 @@ export function generateInterval(start,end){
         return 15;
     } else if (difference > oneDay && difference <= oneWeek * 4){
         return 60;
-    } else if(difference > oneWeek * 4){
+    } else if(difference > oneWeek * 4 && difference <= oneWeek * 21){
         return 'D';
+    }else if(difference > oneWeek * 21 && difference <= oneWeek * 52){
+        return 'W';
+    }else if(difference > oneWeek * 52){
+        return 'M';
     }
 }
