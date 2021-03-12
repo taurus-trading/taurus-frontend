@@ -13,8 +13,6 @@
   width: 200px;
   color: white;
   font-weight: bold;
-  /* -webkit-text-stroke: 2px black;
-  paint-order: stroke fill; */
   text-decoration: none;
 }
 
@@ -24,24 +22,17 @@
   text-shadow: -2px 0 5px yellow;
   text-decoration: none;
   position: absolute;
-  right: 0;
+  right: 25px;
   font-size: 1.3rem;
   font-weight: bold;
 }
-.links:nth-child(4){
-  color: yellow;
-  text-shadow: -2px 0 5px yellow;
-  text-decoration: none;
 
-  /* -webkit-text-stroke: 2px black; */
- 
-}
 
 .active {
   color: rgb(0, 255, 0);
   background-color: black;
   text-shadow: -2px 0 5px rgb(0, 255, 0);
-  /* -webkit-text-stroke: 2px white; */
+  
 } 
 .header-div{
  display: grid;
@@ -86,8 +77,13 @@
 .nav {
   border-bottom: 2px solid black;
   padding: 0;
-  background: white;
-
+  background: black;
 }
 
 
+.links:nth-child(4){
+  color: yellow;
+  text-shadow: -2px 0 5px yellow;
+  text-decoration: none;
+  margin-right: 10px;
+}
