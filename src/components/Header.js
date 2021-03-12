@@ -27,9 +27,9 @@ export default class Header extends Component {
                     {
                         !this.props.token &&
                         <>
-                            <NavLink activeClassName="active" className='links' exact to="/about">About</NavLink>
                             <NavLink activeClassName="active" className='links' exact to="/">Login</NavLink>
                             <NavLink activeClassName="active" className='links' exact to="/signup">Signup</NavLink>
+                            <NavLink activeClassName="active" className=' about' exact to="/about">About</NavLink>
                         </>
                     }
 

@@ -33,12 +33,14 @@ export default class NewUserPage extends Component {
         
         return (
             <>
+            <div>
                 <p className={`${this.state.onScreen}-what what`}>
                     Please click on a stock to add it to your watchlist. <br/>
                 </p>
                 <p className={`${this.state.onScreen}-why why`}>
                     <Link to='/dashboard'  style={{ textDecoration: 'none', color:'white'}}>Great job! Click here to go to your Dashboard</Link>
                 </p>
+            </div>
             <div className='new-user-wrapper'>
                 <div className='trending-list'>
                     <TrendingDiv 

@@ -7,6 +7,7 @@ p {
     margin: 5px;
 }
 
+
 .trending-list{
     padding-top: 100px;
     display: flex;
@@ -98,11 +99,11 @@ cursor: pointer;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
-    top: 17%;
+    top: 20%;
     left: -30%;
     width: 350px;
   
-    margin-bottom: 15px 0;
+    
     text-align: center;
 }
 
@@ -114,7 +115,7 @@ cursor: pointer;
     position: absolute;
     box-sizing: border-box;
     display: inline-block;
-    top: 17%;
+    top: 20%;
     right: -30%;
     width: 350px;
     margin-bottom: 15px 0;
