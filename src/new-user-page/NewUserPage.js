@@ -24,17 +24,13 @@ export default class NewUserPage extends Component {
         const match = watch.find(item => item.symbol === symbol);
         match? await  deleteFromWatchList(this.props.token, match.id) : 
         await addToWatchList(this.props.token, symbol, title)
-        
-        // await addToWatchList(this.props.token, symbol, title);
-
         if(this.state.onScreen === true){
             this.setState({onScreen: false})
         }
-        alert('clicked')
     }
 
     render() {
-        console.log(this.state)
+        
         return (
             <>
                 <p className={`${this.state.onScreen}-what what`}>

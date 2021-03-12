@@ -7,12 +7,12 @@ const BACK_END_URL2 = 'https://spare-backend.herokuapp.com';
 
 
 export async function getTwits(symbol) {
-    const response = await request.get(`${BACK_END_URL2}/twits?symbol=${symbol}`);
+    const response = await request.get(`${BACK_END_URL}/twits?symbol=${symbol}`);
 
     return response.body;
 }
 export async function getTrending() {
-    const response = await request.get(`${BACK_END_URL2}/trending`);
+    const response = await request.get(`${BACK_END_URL}/trending`);
     
     return response.body;
 }
