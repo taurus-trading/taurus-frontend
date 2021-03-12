@@ -83,7 +83,7 @@ export default class Dashboard extends Component {
                     </div>
                 </div>
                 <div className="rightSideBar">
-                    <div className='tweet-div'>
+                    <div className='tweet-div moduleStyle'>
                         <h2>Live Feed</h2>
                         {
                             this.state.error && <h3 style={{ color: 'red' }}>{this.state.error}</h3>

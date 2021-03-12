@@ -41,7 +41,7 @@ export default class PortfolioModule extends Component {
         render() {
         return (
 
-            <div className="portfolioModule">
+            <div className="portfolioModule moduleStyle">
                 <h2>{`Add ${this.props.ticker} to your portfolio at $${this.state.currentPrice} per share`}</h2>
                 <form onSubmit={this.handleAddToPortfolio}>
                     <label>

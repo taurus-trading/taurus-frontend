@@ -11,6 +11,9 @@
     color: black;
     padding: 0;
     margin: 10px auto;
+    width: 100%;
+    
+    
 }
 
 .recharts-surface{
@@ -27,7 +30,7 @@
 .graph-section{
     display: grid;
     grid-template-rows: 3fr 2fr;
-    max-width: 95%;
+    max-width: 100%;
 
 }
 .graph-header-div {

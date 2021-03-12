@@ -62,7 +62,7 @@ export default class StockGraph extends Component {
             return { price:dataPoint}
         });
         return (
-            <div className="graphDate">
+            <div className="graphDate moduleStyle">
                 <div className='graph-div'>
                     <GraphHeader ticker={this.state.ticker}></GraphHeader>
                     <Chart data={data}></Chart>
