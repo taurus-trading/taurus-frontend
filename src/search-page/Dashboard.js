@@ -8,7 +8,7 @@ import { getTwits } from '../utils/api-utils.js';
 import LeftSidebar from './LeftSideBar/LeftSidebar.js';
 import { getUserNotes } from '../utils/user-utils.js';
 import PortfolioModule from '../portfolio/PortfolioModule';
-import Footer from '../components/Footer';
+// import Footer from '../components/Footer';
 // import hardTweets from './hard-coded-tweets.js'
 //import TrendingDiv from './trending/TrendingDiv.js';
 
@@ -32,20 +32,20 @@ export default class Dashboard extends Component {
         const staticTweets = await getTwits(this.state.ticker)
         this.setState({ tweets: staticTweets.messages })
 
-        // this.setState({timer: setInterval(async() => {
-        //     const tweetStream = await getTwits(this.state.ticker)
+        this.setState({timer: setInterval(async() => {
+            const tweetStream = await getTwits(this.state.ticker)
 
-        //     this.setState({tweets: tweetStream.messages})
-        // }, 10000)})
+            this.setState({tweets: tweetStream.messages})
+        }, 10000)})
 
         const userNotes = await getUserNotes(this.props.token);
         this.setState({ userNotes: userNotes });
 
     }
 
-    // componentWillUnmount = () => {
-    //     clearInterval(this.state.timer);
-    // }
+    componentWillUnmount = () => {
+        clearInterval(this.state.timer);
+    }
     handleStockSelect = async (ticker) => {
 
         try {
