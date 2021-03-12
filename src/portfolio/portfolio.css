@@ -1,12 +1,9 @@
-
-
-.watchlist {
-    display: flex;
-    flex-direction: column;
+.portfolioModule {
+    box-shadow: 1px 1px 10px grey;
+    height: 100%;
 }
-
-.add-portfolio {
-    width: 160px;
+.portfolioModule h2 {
+    margin-top: 0;
 }
 .totalGainDiv {
     text-align: right;

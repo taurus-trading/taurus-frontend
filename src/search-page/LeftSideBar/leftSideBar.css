@@ -1,10 +1,12 @@
 .leftSideBarCont {
     display: grid;
-    grid-template-rows: 1fr 1fr;
-    max-height: 100vh;
+    grid-template-rows: 3fr 2fr;
+    max-height: 100%;
+    /* margin-left: 20px; */
+    max-width: 90%
 }
 .border {
-    margin: 10px 7px;
+    /* margin: 10px 7px; */
     border-radius: 5px;
     box-shadow: 1px 1px 5px grey;
     overflow: scroll;

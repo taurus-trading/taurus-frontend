@@ -1,18 +1,16 @@
 .graph-div{
     margin: 10px auto;
     padding: 10px;
-    max-width: 900px;
-    
-    box-shadow: 5px 5px 5px 5px black;
+}
+.graphDate {
+    box-shadow: 1px 1px 10px grey;
+    padding-bottom: 20px;
 }
 .recharts-wrapper{
     position: center;
     color: black;
-   
     padding: 0;
-    margin: 10px;
-    
-    
+    margin: 10px auto;
 }
 
 .recharts-surface{
@@ -27,8 +25,11 @@
     margin: 5px auto;
 }
 .graph-section{
-    display: flex;
-    flex-direction: column;
-    
-    max-width: 900px;
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    max-width: 95%;
+
+}
+.graph-header-div {
+    text-align: center;
 }

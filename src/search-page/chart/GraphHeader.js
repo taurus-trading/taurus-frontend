@@ -23,9 +23,9 @@ export default class GraphHeader extends Component {
     render() {
         console.log(this.state.cost);
         return (
-            <div className='graph-headedr-div'>
-                <h1>Graph for {this.props.ticker}</h1>
-                <h3>Current price <span 
+            <div className='graph-header-div'>
+                <h1>{this.props.ticker}</h1>
+                <h3>Current price: <span 
                 className='new-cost'
                 >${this.state.cost}</span></h3> 
             </div>

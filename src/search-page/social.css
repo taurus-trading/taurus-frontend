@@ -4,19 +4,18 @@ ul {
     padding: 0;
 }
 .tweet-div {
-    margin: 10px auto;
-    margin-left: 5px;
+    
+    /* margin-left: 5px; */
     display: flex;
     box-sizing: border-box;
     flex-direction: column;
     justify-content: center; 
-    border: 2px inset grey;
-    
-    max-width: 400px;
+    box-shadow: 1px 1px 10px grey;
+    max-width: 100%;
     width: 100%;
-    height: 750px;
+    max-height: 850px;
     padding: 5px;
-   
+    /* margin: 10px 7px; */
    
 }
 .tweets{

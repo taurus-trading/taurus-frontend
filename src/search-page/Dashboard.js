@@ -81,25 +81,27 @@ export default class Dashboard extends Component {
                         <PortfolioModule
                             token={this.props.token}
                             ticker={this.state.ticker} />
-                        <NoteDisplay
-                            token={this.props.token} />
+
                     </div>
                 </div>
-                <div className='tweet-div'>
-                    <h2>Live Feed</h2>
-                    {
-                        this.state.error && <h3 style={{ color: 'red' }}>{this.state.error}</h3>
-                    }
-                    <div className="tweets">
-                    <TweetsDiv
-                        tweets={this.state.tweets}
-                        symbol={this.state.ticker}
-                    />
+                <div className="rightSideBar">
+                    <div className='tweet-div'>
+                        <h2>Live Feed</h2>
+                        {
+                            this.state.error && <h3 style={{ color: 'red' }}>{this.state.error}</h3>
+                        }
+
+                        <div className="tweets">
+                            <TweetsDiv
+                                tweets={this.state.tweets}
+                                symbol={this.state.ticker}
+                            />
+                        </div>
                     </div>
-
-
+                    <NoteDisplay
+                        token={this.props.token} />
                 </div>
-                <Footer></Footer>
+                {/* <Footer></Footer> */}
             </div>
         )
     }

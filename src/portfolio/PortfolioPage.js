@@ -65,7 +65,7 @@ export default class PortfolioPage extends Component {
         watchlist: [],
         portfolio: [],
         currentPrice: [],
-        ticker:'QQQ',
+        ticker:'',
         selectedRows: [],
         totalGain: 0
     }

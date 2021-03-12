@@ -1,4 +1,9 @@
 .dashboard {
     display: grid;
-    grid-template-columns: 2fr 5fr 2fr;
+    grid-template-columns: 18% 52% 30%;
+}
+.rightSideBar {
+    display: grid;
+    grid-template-rows: 3fr 2fr;
+    /* margin-right: 20px; */
 }

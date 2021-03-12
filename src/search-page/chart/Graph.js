@@ -80,7 +80,7 @@ export default class StockGraph extends Component {
 
  
         return (
-            <>
+            <div className="graphDate">
                 <div className='graph-div'>
                     <GraphHeader ticker={this.props.ticker}></GraphHeader>
                     {renderLineChart}
@@ -98,10 +98,7 @@ export default class StockGraph extends Component {
                         </div>
                     </form>
                 </div>
-                <div>
-
-                </div>
-            </>
+            </div>
         )
     }
 }
