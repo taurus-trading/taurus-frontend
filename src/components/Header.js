@@ -6,10 +6,9 @@ export default class Header extends Component {
     render() {
         return (
             <header className='header-div'>
-                <div>
+                <div className='marquee-div'>
                     <TickerMarquee />
-                </div>
-                <div className='nav'>
+                    <div className='nav'>
                     {/* links if you do have a token */}
                     {
                         this.props.token &&
@@ -33,6 +32,9 @@ export default class Header extends Component {
                         </>
                     }
                 </div>
+
+                </div>
+               
 
             </header>
         )
