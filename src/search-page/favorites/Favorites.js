@@ -35,7 +35,7 @@ export default class Favorites extends Component {
     render() {
         return (
 
-            <div className="favoritesSection border">
+            <div className="favoritesSection border moduleStyle">
                 {
                     this.state.loading && <Spinner /> 
                 }  

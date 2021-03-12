@@ -1,5 +1,4 @@
 .leftSideBarCont{
-    min-width: 250px;
     width: 100%;
     margin: 0;
     padding: 0;
@@ -10,8 +9,9 @@
     max-width:150px;
 
 }
-.searchForm input{
-    width: 80%;
+.searchForm form{
+    text-align: center;
+    margin-top: 20px;
 }
 .searchItem {
     display: flex;

@@ -20,7 +20,7 @@ export default class SearchSection extends Component {
     }
     render() {
         return (
-            <div className="searchSection border">
+            <div className="searchSection border moduleStyle">
                 <SearchForm handleSearchSubmit={this.handleSearchSubmit} />
                 {
                     this.state.loading && <Spinner /> 

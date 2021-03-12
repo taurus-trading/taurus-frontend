@@ -62,7 +62,7 @@ export default class StockGraph extends Component {
             return { price:dataPoint}
         });
         return (
-            <>
+            <div className="graphDate moduleStyle">
                 <div className='graph-div'>
                     <GraphHeader ticker={this.state.ticker}></GraphHeader>
                     <Chart data={data}></Chart>
@@ -70,10 +70,7 @@ export default class StockGraph extends Component {
                 <div className='date-picker-div'>
                     <DatePicker onSubmit={this.onFormSubmit} selected={this.state.startDate * 1000} onChange={this.handleChange} ></DatePicker>
                 </div>
-                <div>
-
-                </div>
-            </>
+            </div>
         )
     }
 }
