@@ -7,7 +7,7 @@ export default class TickerMarquee extends Component {
             <div>
                 <ul className='ticker-list'>
 
-                {/* <Ticker /> */}
+                <Ticker />
                 </ul>
             </div>
         )
