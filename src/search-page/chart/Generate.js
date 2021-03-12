@@ -8,7 +8,7 @@ export default class Generate extends Component {
             <LineChart width={650} height={600} data={this.props.data}>
                 <Line type="monotone" dataKey="price" stroke="#000" />
                 <CartesianGrid stroke="#eee" />
-                <XAxis />
+                <XAxis interval={0} dataKey="name"/>
                 <YAxis />
                 <Tooltip />
             </LineChart>)
