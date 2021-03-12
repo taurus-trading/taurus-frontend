@@ -8,11 +8,26 @@
 }
 
 .links{
-  margin: 0 10px;
+  font-size: 1.3rem;
+  margin: 5px 10px;
   width: 200px;
+  color: black;
+  font-weight: bold;
+  -webkit-text-stroke: 2px red;
+  text-decoration: none;
 }
+.links:nth-child(1){
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  -webkit-text-stroke: 2px black;
+ 
+}
+
 .active {
-  color: #61dafb;
+  color: green;
+  background-color: black;
+  -webkit-text-stroke: 2px green;
 } 
 .header-div{
  display: grid;
@@ -50,5 +65,5 @@
   text-shadow: -2px 0 10px red;
 }
 .nav {
-  background-color: white;
+  border-bottom: 2px solid white;
 }
