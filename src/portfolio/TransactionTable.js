@@ -17,7 +17,7 @@ const columns = [
 ];
 
 
-export default class transaction extends Component {
+export default class Transaction extends Component {
     render() {
         return (
             <div>

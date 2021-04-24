@@ -22,19 +22,17 @@ export default class SearchSection extends Component {
         return (
             <div className="searchSection border moduleStyle">
                 <SearchForm handleSearchSubmit={this.handleSearchSubmit} />
+                { this.state.loading && <Spinner /> } 
                 {
-                    this.state.loading && <Spinner /> 
-                } 
-                {
-                    this.state.searchResults.length > 0 && this.state.searchResults.map( (stock, i) => {
-                        return <SearchItem 
+                    this.state.searchResults.length > 0 
+                        && this.state.searchResults.map( (stock, i) =>
+                         <SearchItem 
                                 stockInfo={stock} 
                                 token={this.props.token} 
-                                key={i} 
+                                key={i} // indicies usually make pretty bad react keys, since you'll get duplicated if you do this in two places on the same page
                                 handleStockSelect={this.props.handleStockSelect}
                                 increaseFavoritesCount={this.props.increaseFavoritesCount}
                                 />
-                    }
                     )
                 }
             </div>

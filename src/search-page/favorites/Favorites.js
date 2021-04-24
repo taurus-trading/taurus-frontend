@@ -42,7 +42,8 @@ export default class Favorites extends Component {
                 <h2 className="watchlist2">Your Watch List</h2>
                 <>
                     {
-                        this.state.watchlist.length > 0 && this.state.watchlist.map(item => {
+                        this.state.watchlist.length > 0 
+                        && this.state.watchlist.map(item => {
                             return <FavoriteItem
                                 key={item.id}
                                 stockInfo={item}

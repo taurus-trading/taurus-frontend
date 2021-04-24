@@ -8,6 +8,7 @@ export function getCurrentTimeMilli() {
     return (Math.round(new Date().getTime() / 1000));
 }
 
+// cool util!
 export function generateInterval(start,end){
     let oneDay = 86400;
     let oneWeek = oneDay * 7;

@@ -29,16 +29,24 @@ export default class StockGraph extends Component {
 
         this.setState({dataPoints: data.c});
     }
+
+    doStuff = async () => {
+        const priceInterval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
+        await this.setState({ priceInterval })
+        const { c: dataPoints } =  await getStockPriceHistory(this.state.ticker, 
+            this.state.priceInterval, 
+            this.state.currentTimeMilli, 
+            this.state.startDate);
+        this.setState({ dataPoints });
+
+    }
+
     componentDidUpdate = async () => {
+        // nice work figuring out this lifecycle method! not an easy thing to reason through
+        
         if(this.props.ticker !== this.state.ticker){
             this.setState({ticker: this.props.ticker})
-            const interval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
-            await this.setState({priceInterval: interval})
-            const data =  await getStockPriceHistory(this.state.ticker, 
-                this.state.priceInterval, 
-                this.state.currentTimeMilli, 
-                this.state.startDate);
-            this.setState({dataPoints: data.c});
+            await this.doStuff()
         }
     }
     
@@ -49,18 +57,12 @@ export default class StockGraph extends Component {
     onFormSubmit = async (e) => {
         e.preventDefault();
         this.setState({currentTimeMilli: getCurrentTimeMilli()});
-        const interval = generateInterval(this.state.startDate , this.state.currentTimeMilli);
-        await this.setState({priceInterval: interval})
-        const data =  await getStockPriceHistory(this.state.ticker, 
-            this.state.priceInterval, 
-            this.state.currentTimeMilli, 
-            this.state.startDate);
-        this.setState({dataPoints: data.c})
+        await this.doStuff();
     }
     render() {
-        const data = this.state.dataPoints.map(dataPoint => {
-            return { price:dataPoint}
-        });
+        // parens make a good shorthand for when you're just returning an object from an arrow function
+        const data = this.state.dataPoints.map(dataPoint => ({ price:dataPoint }));
+
         return (
             <div className="graphDate moduleStyle">
                 <div className='graph-div'>

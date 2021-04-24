@@ -8,17 +8,12 @@ export default class TweetItem extends Component {
                     <div className="userAccount">
                         <img src={this.props.avatar_url} alt='username' className='avatar' />
                         <p className='username'>{this.props.username}</p>
-                    </div>
+                    </div>  
 
-                        
-                    {
-                        this.props.sentiment &&
-                        <p>
-                            {this.props.sentiment}
-                        </p>
-                    }
-                    
+                    { this.props.sentiment && <p>{this.props.sentiment}</p> }
+
                     <p>{this.props.message}</p>
+                    
                     {
                         this.props.image &&
                         <img src={this.props.image} alt='stock-chart' className='tweet-image' />

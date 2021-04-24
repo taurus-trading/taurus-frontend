@@ -6,16 +6,15 @@ export default class GraphHeader extends Component {
         cost: '',
     }
     componentDidMount = async () => {
-        const priceObj = await getCurrentStockPrice(this.props.ticker);
+        const { c } = await getCurrentStockPrice(this.props.ticker);
         console.log(this.props.ticker);
-        this.setState({cost: priceObj.c});   
+        this.setState({cost: c});   
     }
     componentDidUpdate = async () => {
-        const priceObj = await getCurrentStockPrice(this.props.ticker);
-        if(this.state.cost === priceObj.c){
-            return;
+        const { c } = await getCurrentStockPrice(this.props.ticker);
+        if(this.state.cost !== c){
+            this.setState({cost: c }); 
         }
-        this.setState({cost: priceObj.c}); 
     }
     render() {
         return (

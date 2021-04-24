@@ -38,6 +38,7 @@ class LoginForm extends Component {
         return (
             <div>
                 {
+                    // probably worth getting this styling in your css instead of doing it inline here
                 this.state.error && <h3 style={{ color: 'red'}}>{this.state.error}</h3>
                 }
                 <h2 className='welcome'>Welcome to Taurus Trading</h2>
