@@ -4,7 +4,7 @@ const BACK_END_URL = 'https://taurus-backend.herokuapp.com';
 const BACK_END_URL2 = 'https://spare-backend.herokuapp.com';
 // const BACK_END_URL = 'https://localhost:3000';
 
-
+// so much good work, with so few api utils!
 
 export async function getTwits(symbol) {
     const response = await request.get(`${BACK_END_URL2}/twits?symbol=${symbol}`);

@@ -44,7 +44,13 @@ export default class NoteDisplay extends Component {
                 <NotesInput noteInput={this.state.noteInput} handleSubmit={this.handleSubmit} handleInputChange={this.handleInputChange} />
                 <div className="notes-div">
                     {
-                    this.state.userNotes.map(note => <NotesItem setUserNotes={this.setUserNotes} key={note.id} userEntry={note.text} token={this.props.token} userNote={note} />)
+                    this.state.userNotes.map(note => 
+                        <NotesItem
+                            setUserNotes={this.setUserNotes}
+                            key={note.id}
+                            userEntry={note.text}
+                            token={this.props.token}
+                            userNote={note} />)
                     }
                 </div>
             </div>

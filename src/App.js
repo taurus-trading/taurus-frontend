@@ -15,11 +15,11 @@ import PrivateRoute from './components/PrivateRoute.js'
 import React, { Component } from 'react'
 import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStorage } from './utils/user-utils';
 
+// The functionality and UI of your app is so thorughly compartmentalized into components that it's easy to imagine inheriting this project and diving right in. Incredible work creating a maintainable react project (to say nothing of the complexity you tamed in getting this to work)!
 export default class App extends Component {
   state = {
     token: getUserFromLocalStorage(),
   }
-  componentDidCatch
 
   handleUserChange = (token) => {
     this.setState({ token: token })

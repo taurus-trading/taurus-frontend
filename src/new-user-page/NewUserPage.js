@@ -20,10 +20,11 @@ export default class NewUserPage extends Component {
         this.setState({trending: trendingListOfStocks.symbols})
     }
     handleSubmit = async(symbol, title) => {
-        const watch = await getUserWatchList(this.props.token);
-        const match = watch.find(item => item.symbol === symbol);
-        match? await  deleteFromWatchList(this.props.token, match.id) : 
-        await addToWatchList(this.props.token, symbol, title)
+        const watchList = await getUserWatchList(this.props.token);
+        const match = watchList.find(item => item.symbol === symbol);
+        match 
+            ? await  deleteFromWatchList(this.props.token, match.id) 
+            : await addToWatchList(this.props.token, symbol, title)
         if(this.state.onScreen === true){
             this.setState({onScreen: false})
         }

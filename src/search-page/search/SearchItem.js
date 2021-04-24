@@ -8,7 +8,11 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 export default class SearchItem extends Component {
 
     handleAddToFavs = async () => {
-        await addToWatchList(this.props.token, this.props.stockInfo.symbol, this.props.stockInfo.description)
+        await addToWatchList(
+            this.props.token, 
+            this.props.stockInfo.symbol, 
+            this.props.stockInfo.description
+        )
         this.props.increaseFavoritesCount();
     }
     render() {

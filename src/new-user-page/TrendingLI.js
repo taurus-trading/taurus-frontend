@@ -6,8 +6,12 @@ export default class TrendingLI extends Component {
         className: 'unChecked'
     }
     handleClassChange =  () =>{
-        this.state.className === 'unChecked' ? this.setState({className: 'checked'}) : this.setState({classNamed: 'unChecked'});
-        this.state.className === 'checked' ? this.setState({className: 'unChecked'}) : this.setState({classNamed: 'checked'});
+        this.state.className === 'unChecked' 
+            ? this.setState({className: 'checked'}) 
+            : this.setState({classNamed: 'unChecked'});
+        this.state.className === 'checked' 
+            ? this.setState({className: 'unChecked'}) 
+            : this.setState({classNamed: 'checked'}); // is the 'd' a typo?
     }
     render() {
         return (

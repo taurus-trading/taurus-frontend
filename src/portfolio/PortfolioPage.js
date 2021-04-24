@@ -8,6 +8,7 @@ import './portfolio.css';
 import  { IconButton }  from '@material-ui/core';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
+// I'd like this defined in a separate file and imported, since this component is already pretty big
 const columns = [
   {
     name: 'Ticker',
@@ -59,8 +60,6 @@ const handleChange = (state) => {
   
 }
 
-
-
 export default class PortfolioPage extends Component {
 
     state = {
@@ -99,19 +98,18 @@ export default class PortfolioPage extends Component {
         })
     }
     
-    calculateGainArr = () => {
-      const gainArr = this.state.portfolio.map((transaction, i) => {
+    calculateGainArr = () =>
+      this.state.portfolio.map((transaction, i) => {
         const costBasis = transaction.cost * transaction.quantity;
         const currentEquity = this.state.currentPrice[i] * transaction.quantity;
         return currentEquity - costBasis;
       }) 
-      return gainArr;
-    }
-    calculateTotalGains = (gainArr) => {
-      return gainArr.reduce((acc, item) => {
+    
+    calculateTotalGains = (gainArr) => 
+       gainArr.reduce((acc, item) => {
         return acc + item
       }, 0)
-    }
+    
 
     handleAddToPortfolio = async (symbol, title) => {
         alert('added')
@@ -121,10 +119,10 @@ export default class PortfolioPage extends Component {
 
     handleDelete = async () => {
       console.log('selected rows:', selectedRowsArray)
-      await Promise.all(selectedRowsArray.map(row => {
+      await Promise.all(selectedRowsArray
+          .map(row => deleteFromPortfolio(this.props.token, row.transaction_id)
+      ))
 
-        return deleteFromPortfolio(this.props.token, row.transaction_id);
-      }))
       await this.fetchPortfolio();
     }
 

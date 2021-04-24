@@ -23,10 +23,8 @@ export default class PortfolioModule extends Component {
 
     componentDidUpdate = async (prevProps) => {
         if (this.props.ticker !== prevProps.ticker) {
-            const currentPrice = await getCurrentStockPrice(this.props.ticker)
-            this.setState({
-                currentPrice: currentPrice.c
-            })
+            const { c: currentPrice } = await getCurrentStockPrice(this.props.ticker)
+            this.setState({ currentPrice })
         }
     }
 

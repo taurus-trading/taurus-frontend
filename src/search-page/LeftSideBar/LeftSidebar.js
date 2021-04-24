@@ -6,8 +6,8 @@ import './leftSideBar.css';
 export default class LeftSidebar extends Component {
     state = {
         favoritesCount: 0
-        
     }
+
     increaseFavoritesCount = () => {
         this.setState({
             favoritesCount: this.state.favoritesCount + 1
@@ -21,14 +21,12 @@ export default class LeftSidebar extends Component {
     render() {
         return (
             <div className="leftSideBarCont">
+                {/* this is some beautifully abstracted, componentized code. great work with this */}
                 <SearchSection
                     increaseFavoritesCount={this.increaseFavoritesCount}                
                     handleStockSelect={this.props.handleStockSelect}
                     token={this.props.token}
-                    
-
                 />
-
                 <Favorites
                     decreaseFavoritesCount={this.decreaseFavoritesCount}
                     token={this.props.token}
